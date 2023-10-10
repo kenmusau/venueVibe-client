@@ -12,6 +12,10 @@
   width: 300px;
 }
 
+.signup-form {
+  margin-bottom: 20px;
+}
+
 .signup-form label {
   display: block;
   font-size: 20px;
@@ -50,4 +54,13 @@
   color: red;
   font-size: 14px;
   margin-bottom: 10px;
+  font-style: italic;
+}
+
+.fied-errors:nth-child(1) {
+  padding-top: 10px;
+}
+
+.login-signup-toogle {
+  text-align: center;
 }

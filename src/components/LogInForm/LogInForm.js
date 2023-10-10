@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import "./SignUpForm.css";
+import "../SignUpForm/SignUpForm.css";
 import { baseUrl } from "../../utils";
 import Swal from "sweetalert2";
 
 import { Link } from "react-router-dom";
 
-function SignUpForm() {
+function LogInForm() {
   const { register, handleSubmit } = useForm();
   const [loading, isLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -44,14 +44,11 @@ function SignUpForm() {
   return (
     <div className="sign-up-container">
       <div className="form-details">
-        <h1>Create Account</h1>
+        <h1>Sign In</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
           <label htmlFor="username">Username</label>
           <input type="text" {...register("username")} />
-
-          <label htmlFor="email">Email</label>
-          <input type="email" {...register("email")} />
 
           <label htmlFor="password">Password</label>
           <input type="password" {...register("password")} />
@@ -67,11 +64,11 @@ function SignUpForm() {
           </button>
         </form>
         <p className="login-signup-toogle">
-          Already on VenueVibe? <Link to="/clientlogin">Sign In</Link>{" "}
+          New to VenueVibe? <Link to="/">Join Now</Link>{" "}
         </p>
       </div>
     </div>
   );
 }
 
-export default SignUpForm;
+export default LogInForm;
