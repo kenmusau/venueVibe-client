@@ -26,7 +26,7 @@ function ContactUs() {
                         style={{
                             color: 'black',
                             fontSize: 24,
-                            fontFamily: 'Inter'
+                            fontFamily: 'Inter',
                             fontWeight: '700',
                             wordWrap: 'break-word',
                         }}
