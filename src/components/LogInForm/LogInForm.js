@@ -4,6 +4,7 @@ import axios from "axios";
 import "../SignUpForm/SignUpForm.css";
 import { baseUrl } from "../../utils";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
@@ -12,26 +13,26 @@ function LogInForm() {
   const [loading, isLoading] = useState(false);
   const [errors, setErrors] = useState([]);
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     isLoading(true);
     const formData = {
       username: data.username,
-      first_name: data.first_name,
-      last_name: data.last_name,
-      email: data.email,
+      // email: data.email,
       password: data.password,
-      profile_picture: data.profile_picture,
     };
     axios
-      .post(`${baseUrl}/clientSignup`, formData)
+      .post(`${baseUrl}/clientLogin`, formData)
       .then((res) => {
         isLoading(false);
         Swal.fire({
           title: "Success!",
-          text: "Your account was successfully created",
+          text: "Successfully Logged in",
           icon: "success",
           confirmButtonText: "Okay",
         });
+        navigate("/clientDashboard");
       })
       .catch((error) => {
         setErrors(error.response.data.errors);
@@ -64,7 +65,7 @@ function LogInForm() {
           </button>
         </form>
         <p className="login-signup-toogle">
-          New to VenueVibe? <Link to="/">Join Now</Link>{" "}
+          New to VenueVibe? <Link to="/">Join Now</Link>
         </p>
       </div>
     </div>
