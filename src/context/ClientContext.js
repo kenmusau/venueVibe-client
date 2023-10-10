@@ -11,7 +11,9 @@ function ClientProvider({ children }) {
     axios.get(`${baseUrl}/loggedInClient`).then((client) => {
       setClient(client);
     });
-  });
+  }, [setClient]);
+
+  console.log(client);
   return (
     <ClientContext.Provider value={{ client, setClient }}>
       {children}
