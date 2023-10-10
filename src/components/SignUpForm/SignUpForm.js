@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 function SignUpForm() {
   const { register, handleSubmit } = useForm();
   const [loading, isLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const onSubmit = (data) => {
     isLoading(true);
@@ -30,11 +31,13 @@ function SignUpForm() {
           confirmButtonText: "Okay",
         });
       })
-      .catch((errors) => {
-        console.log(errors.message);
+      .catch((error) => {
+        setErrors(error.response.data.errors);
         isLoading(false);
       });
   };
+
+  console.log(errors);
 
   return (
     <div className="sign-up-container">
@@ -45,23 +48,17 @@ function SignUpForm() {
           <label htmlFor="username">Username</label>
           <input type="text" {...register("username")} />
 
-          <label htmlFor="first_name">First Name</label>
-          <input type="text" {...register("first_name")} />
-
-          <label htmlFor="last_name">Last Name</label>
-          <input type="text" {...register("last_name")} />
-
           <label htmlFor="email">Email</label>
           <input type="email" {...register("email")} />
-
-          <label htmlFor="profile_picture">Profile picture</label>
-          <input type="text" {...register("profile_picture")} />
 
           <label htmlFor="password">Password</label>
           <input type="password" {...register("password")} />
 
-          {/* <label htmlFor="confirm_password">Confirm Password</label>
-          <input type="password" {...register("confirm_password")} /> */}
+          {errors.map((err, index) => (
+            <p key={index} className="fied-errors">
+              {err}.
+            </p>
+          ))}
 
           <button className="signup-btn">
             {loading ? "Loading..." : "Submit"}
