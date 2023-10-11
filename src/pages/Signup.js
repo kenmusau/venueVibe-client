@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form';
 
-function Signup() {
+function Signup({ onSave }) {
+
+    const { register, handleSubmit } = useForm()
 
     const [inputs, setInputs] = useState({
-        firstName: "",
-        secondName: "",
+        first_name: "",
+        last_name: "",
         email: "",
         password: "",
-        category: ""
+        username: "",
+        profile_picture: ""
     })
 
-    const { firstName, secondName, email, password, category } = inputs;
+    const { first_name, last_name, email, password, username, profile_picture } = inputs;
 
     // const [firstName, setFirstName] = useState("")
     // const [secondName, setSecondName] = useState("")
@@ -25,17 +29,16 @@ function Signup() {
         })
     }
 
-    function handleSubmit(e){
-        e.preventDefault()
-
-        fetch("",{
-            method: "POST",
-            body: JSON.stringify(inputs),
-            headers:{
-                "Content-Type": "application/json"
-            }, 
-        })
-        .then(resp => resp.json)
+    function handleFormSubmit(formValues){
+        // fetch("",{
+        //     method: "POST",
+        //     body: JSON.stringify(inputs),
+        //     headers:{
+        //         "Content-Type": "application/json"
+        //     }, 
+        // })
+        // .then(resp => resp.json)
+        onSave(formValues)
     }
 
   return (
@@ -46,45 +49,46 @@ function Signup() {
         <div className='right'>
             <h2>Create Account</h2> 
             <div className='signup-form'>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(handleFormSubmit)}>
                     <div className='form'>
                         <div className='names'>
-                        <input
-                        className='first-input'
-                        type="text"
-                        name="firstName"
-                        value={firstName}
-                        onChange={handleInputs}
-                        />
-                        <label className='firstname'>First Name</label>
-                        <input
-                        name='secondName'
-                        value={secondName}
-                        type="text"
-                        onChange={handleInputs}
-                        />
-                        <label  className='secondname'>Second Name</label>
+                            <div>
+                                <input
+                                className='first-input'
+                                type="text"
+                                {...register("first_name")}
+                                />
+                                <label className='firstname'>First Name</label>
+                            </div>
+                            <div>
+                                <input
+                                {...register("last_name")}
+                                />
+                                <label  className='lastname'>Last Name</label>
+                            </div>
+                        </div>
+                        <div className='user-preference'>
+                                <div className='username-input'>
+                                    <input {...register("username")}/>
+                                    <label className='username'>Username</label>  
+                                </div>
+                                <div className='picture-div'>
+                                    <input {...register("profile_picture")} type='file'/>
+                                    <label className='profile-picture'>Profile Picture</label>  
+                                </div>
                         </div>
                         <div className='email-div'>
                             <input
-                            value={email}
-                            name='email'
-                            type='email'
-                            required
-                            onChange={handleInputs}
-
+                                {...register("email")}       
                             />
                             <label className='email'>Email</label>  
                         </div>
-                        <div className='password-div'>
-                            <input
-                            value={password}
-                            name='password'
-                            type="password"
-                            required
-                            />
-                            <label className='password'>Password</label>  
-                        </div>
+                            <div className='password-div'>
+                                <input
+                                {...register("password")}
+                                />
+                                <label className='password'>Password</label>  
+                            </div>
                         <button className='signup-button'>Create Account</button>
                     </div>
                 </form>

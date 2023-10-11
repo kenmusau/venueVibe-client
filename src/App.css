@@ -159,6 +159,10 @@
     width: 65%;
     height: 100%;
   }
+
+  .names{
+    display: flex;
+  }
   
   .names input{
     margin-top: 20px;
@@ -169,6 +173,32 @@
     margin-left: 80px;
   }
   
+  .user-preference{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .picture-div{
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 310px;
+    margin-right: 20px;
+  }
+
+  .picture-div input{
+    margin-top: 20px;
+  }
+
+  .username-input input{
+    margin-top: 20px;
+    width: 310px;
+    height: 35px;
+    border: 1px solid #767575;
+    border-radius: 5px;
+    margin-left: 80px;
+  }
+
   .email-div{
     margin: 30px;
     margin-left: 80px;
@@ -194,7 +224,6 @@
   .signup-form{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
   }
   
   .right h2{
@@ -288,8 +317,8 @@
   
   .firstname{
     position: absolute;
-    left: 555px;
-    top: 137px;
+    left: 535px;
+    top: 142px;
     z-index: 1;
     background-color: white;
     padding-left: 5px;
@@ -297,10 +326,10 @@
     color: #767575;
   }
   
-  .secondname{
+  .lastname{
     position: absolute;
-    top: 137px;
-    left: 945px;
+    top: 142px;
+    left: 930px;
     z-index: 1;
     background-color: white;
     padding-left: 5px;
@@ -310,8 +339,8 @@
   
   .email{
     position: absolute;
-    left: 555px;
-    top: 202px;
+    left: 535px;
+    top: 270px;
     z-index: 1;
     background-color: white;
     padding-left: 5px;
@@ -321,13 +350,34 @@
   
   .password{
     position: absolute;
-    left: 555px;
-    top: 265px;
+    left: 535px;
+    top: 336px;
     z-index: 1;
     background-color: white;  
     padding-left: 5px;
     padding-right: 5px;
     color: #767575;
-  }
+}
 
+.username{
+    position: absolute;
+    left: 535px;
+    top: 200px;
+    z-index: 1;
+    background-color: white;  
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #767575;
+}
+
+.profile-picture{
+    position: absolute;
+    left: 930px;
+    top: 200px;
+    z-index: 1;
+    background-color: white;  
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #767575;
+}
    
