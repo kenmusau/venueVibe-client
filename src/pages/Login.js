@@ -1,6 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
+
+    const [error, setError] = useState(false)
+    const navigate = useNavigate()
+
+    const [inputs, setInputs] = useState({
+        email:"",
+        password:""
+    })
+
+    const { email, password } = inputs
+  
+    function handleInputs(e){
+        setInputs({
+            ...inputs,
+            [e.target.name] : e.target.value
+        })
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        fetch("",{
+            method:"POST",
+            body: JSON.stringify(inputs),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(resp => {
+            resp.ok? navigate("/homepage") : setError(true)
+        })
+    }
   return (
     <div className='login'>
         <div className='wrapper'>
