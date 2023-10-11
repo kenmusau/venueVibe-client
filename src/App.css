@@ -47,7 +47,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2em;
+    gap: 1em;
     width: 40%;
   
   }
@@ -114,6 +114,15 @@
     color: #FF922B;
   }
   
+  .input-divs{
+    width: 100%;
+    display: grid;
+    align-items: center;
+  }
+
+  .first-input{
+    margin: 0px 0px;
+  }
   /* .login-button{
     width: 50%;
   }
