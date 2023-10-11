@@ -19,7 +19,6 @@ function LogInForm() {
     isLoading(true);
     const formData = {
       username: data.username,
-      // email: data.email,
       password: data.password,
     };
     axios
