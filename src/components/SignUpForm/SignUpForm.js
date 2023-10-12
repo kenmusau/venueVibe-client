@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import "./SignUpForm.css";
 import { baseUrl } from "../../utils";
 import Swal from "sweetalert2";
+import { ClientContext } from "../../context/ClientContext";
 
 import { Link } from "react-router-dom";
 
 function SignUpForm() {
+  const { setClient } = useContext(ClientContext);
   const { register, handleSubmit } = useForm();
   const [loading, isLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -26,6 +28,7 @@ function SignUpForm() {
       .post(`${baseUrl}/clientSignup`, formData)
       .then((res) => {
         isLoading(false);
+        setClient(res);
         Swal.fire({
           title: "Success!",
           text: "Your account was successfully created",
@@ -67,7 +70,7 @@ function SignUpForm() {
           </button>
         </form>
         <p className="login-signup-toogle">
-          Already on VenueVibe? <Link to="/clientlogin">Sign In</Link>{" "}
+          Already on VenueVibe? <Link to="/login">Sign In</Link>{" "}
         </p>
       </div>
     </div>

@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { baseUrl } from "../../utils";
 
 function ClientDashboard() {
-  const { client } = useContext(ClientContext);
+  const { client, setClient } = useContext(ClientContext);
+
+  console.log(client);
 
   const navigate = useNavigate();
 
@@ -12,12 +14,12 @@ function ClientDashboard() {
     fetch(`${baseUrl}/logout`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
         // onSetLoggedUser(null);
+        setClient(null);
         navigate("/login");
       }
     });
   }
 
-  console.log(client);
   return (
     <div>
       <h1>Welcome User</h1>

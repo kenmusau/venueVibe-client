@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import "../SignUpForm/SignUpForm.css";
 import { baseUrl } from "../../utils";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { ClientContext } from "../../context/ClientContext";
 
 import { Link } from "react-router-dom";
 
 function LogInForm() {
+  const { setClient } = useContext(ClientContext);
   const { register, handleSubmit } = useForm();
   const [loading, isLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -25,13 +27,14 @@ function LogInForm() {
       .post(`${baseUrl}/login`, formData)
       .then((res) => {
         isLoading(false);
+        setClient(res);
         Swal.fire({
           title: "Success!",
           text: "Successfully Logged in",
           icon: "success",
           confirmButtonText: "Okay",
         });
-        console.log(res);
+        // console.log(res);
         navigate("/clientDashboard");
       })
       .catch((error) => {
