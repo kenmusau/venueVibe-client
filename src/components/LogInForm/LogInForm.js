@@ -22,7 +22,7 @@ function LogInForm() {
       password: data.password,
     };
     axios
-      .post(`${baseUrl}/clientLogin`, formData)
+      .post(`${baseUrl}/login`, formData)
       .then((res) => {
         isLoading(false);
         Swal.fire({
@@ -31,6 +31,7 @@ function LogInForm() {
           icon: "success",
           confirmButtonText: "Okay",
         });
+        console.log(res);
         navigate("/clientDashboard");
       })
       .catch((error) => {

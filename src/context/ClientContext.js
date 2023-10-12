@@ -8,7 +8,7 @@ function ClientProvider({ children }) {
   const [client, setClient] = useState(null);
 
   useEffect(() => {
-    fetch(`${baseUrl}/loggedInClient`)
+    fetch(`${baseUrl}/me`)
       .then((r) => {
         if (!r.ok) {
           throw new Error("Network response was not ok");
@@ -22,7 +22,7 @@ function ClientProvider({ children }) {
       .catch((error) => {
         console.error("Error fetching client:", error);
       });
-  }, [setClient]);
+  }, [client]);
 
   // console.log(client);
   return (

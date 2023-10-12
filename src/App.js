@@ -9,7 +9,7 @@ function App() {
       <Routes>
         {/* <Route path="/signup" element={SignUpForm} /> */}
         <Route path="/" element={<SignUpForm />} />
-        <Route path="/clientlogin" element={<LogInForm />} />
+        <Route path="/login" element={<LogInForm />} />
         <Route path="/clientDashboard" element={<ClientDashboard />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
