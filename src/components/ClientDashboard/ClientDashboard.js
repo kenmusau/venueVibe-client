@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ClientContext } from "../../context/ClientContext";
 import { useNavigate } from "react-router-dom";
 import "./ClientDashboard.css";
@@ -7,6 +7,7 @@ import { Link, Outlet } from "react-router-dom";
 
 function ClientDashboard() {
   const { client, setClient } = useContext(ClientContext);
+  const [selectedMenuItem, setSelectedMenuItem] = useState("dashboard");
 
   console.log(client?.data);
 
@@ -28,19 +29,34 @@ function ClientDashboard() {
           Venue<span>Vibe</span>
         </h1>
         <ul className="sidebar-menu">
-          <li>
-            <Link to="dashboard" className="menu-text">
+          <li className={selectedMenuItem === "dashboard" ? "active" : ""}>
+            <Link
+              to="dashboard"
+              onClick={() => setSelectedMenuItem("dashboard")}
+            >
               Dashboard
             </Link>
           </li>
-          <li>
-            <Link to="spaces" className="menu-text">
+          <li className={selectedMenuItem === "spaces" ? "active" : ""}>
+            <Link to="spaces" onClick={() => setSelectedMenuItem("spaces")}>
               Spaces
             </Link>
           </li>
-          <li>Recents</li>
-          <li>Help</li>
-          <li>Settings</li>
+          <li className={selectedMenuItem === "recents" ? "active" : ""}>
+            <Link to="recents" onClick={() => setSelectedMenuItem("recents")}>
+              Recents
+            </Link>
+          </li>
+          <li className={selectedMenuItem === "help" ? "active" : ""}>
+            <Link to="help" onClick={() => setSelectedMenuItem("help")}>
+              Help
+            </Link>
+          </li>
+          <li className={selectedMenuItem === "Settings" ? "active" : ""}>
+            <Link to="Settings" onClick={() => setSelectedMenuItem("Settings")}>
+              Settings
+            </Link>
+          </li>
           <li onClick={handleLogoutClick} className="client-logout">
             <svg
               xmlns="http://www.w3.org/2000/svg"
