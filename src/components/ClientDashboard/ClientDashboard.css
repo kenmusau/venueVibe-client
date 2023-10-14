@@ -65,6 +65,12 @@
   color: #ff5d22;
 }
 
+.sidebar-menu li:last-child {
+  font-weight: 900;
+  margin-top: 100%;
+  color: #ef4444;
+}
+
 .client-logout {
   display: flex;
   align-items: center;
