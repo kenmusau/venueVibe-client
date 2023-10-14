@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap");
+
+.client-dashboard {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f1f3f5;
+  /* width: 100%; */
+}
+
+.client-sidebar {
+  background-color: #334155;
+  /* background-color: #1864ab; */
+  width: 20%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 10px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.client-view-content {
+  background-color: #f8f9fa;
+  width: 80%;
+  padding: 20px;
+}
+.sidebar-logo {
+  font-family: "Oswald", sans-serif;
+  color: #ff5d22;
+  font-size: 38px;
+}
+
+.sidebar-logo span {
+  font-size: 20px;
+  color: #9c6969;
+}
+.sidebar-menu {
+  margin-top: 30%;
+}
+
+.sidebar-menu li {
+  margin-bottom: 25%;
+  font-size: 28px;
+  font-weight: 900;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.sidebar-menu li:hover {
+  color: #ff5d22;
+}
+
+.sidebar-menu li:active {
+  color: #ff5d22;
+}
+
+.sidebar-menu li:last-child {
+  margin-top: 100%;
+}
+
+.client-logout {
+  display: flex;
+  align-items: center;
+}
+.logout-icon {
+  height: 32px; /* Set the desired height */
+  width: 32px; /* Set the desired width */
+  margin-right: 8px;
+}

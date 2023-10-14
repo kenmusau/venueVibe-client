@@ -22,7 +22,7 @@ function ClientProvider({ children }) {
       .catch((error) => {
         console.error("Error fetching client:", error);
       });
-  }, []);
+  }, [setClient]);
 
   // console.log(client);
   return (

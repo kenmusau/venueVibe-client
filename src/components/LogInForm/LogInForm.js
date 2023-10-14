@@ -38,12 +38,10 @@ function LogInForm() {
         navigate("/clientDashboard");
       })
       .catch((error) => {
-        setErrors(error.response.data.errors);
+        setErrors(error.response.data?.error);
         isLoading(false);
       });
   };
-
-  console.log(errors);
 
   return (
     <div className="sign-up-container">
@@ -64,7 +62,7 @@ function LogInForm() {
           ))}
 
           <button className="signup-btn">
-            {loading ? "Loading..." : "Submit"}
+            {loading ? "Please Wait..." : "Submit"}
           </button>
         </form>
         <p className="login-signup-toogle">
