@@ -65,10 +65,6 @@
   color: #ff5d22;
 }
 
-.sidebar-menu li:last-child {
-  margin-top: 100%;
-}
-
 .client-logout {
   display: flex;
   align-items: center;
