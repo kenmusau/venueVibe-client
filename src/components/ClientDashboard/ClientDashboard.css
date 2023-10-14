@@ -8,6 +8,15 @@
   /* width: 100%; */
 }
 
+.menu-text {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu-text:hover {
+  color: #ff5d22;
+}
+
 .client-sidebar {
   background-color: #334155;
   /* background-color: #1864ab; */

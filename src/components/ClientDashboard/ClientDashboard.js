@@ -3,6 +3,7 @@ import { ClientContext } from "../../context/ClientContext";
 import { useNavigate } from "react-router-dom";
 import "./ClientDashboard.css";
 import { baseUrl } from "../../utils";
+import { Link, Outlet } from "react-router-dom";
 
 function ClientDashboard() {
   const { client, setClient } = useContext(ClientContext);
@@ -14,7 +15,6 @@ function ClientDashboard() {
   function handleLogoutClick() {
     fetch(`${baseUrl}/logout`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        // onSetLoggedUser(null);
         setClient(null);
         navigate("/login");
       }
@@ -28,8 +28,16 @@ function ClientDashboard() {
           Venue<span>Vibe</span>
         </h1>
         <ul className="sidebar-menu">
-          <li>Dashboard</li>
-          <li>Spaces</li>
+          <li>
+            <Link to="dashboard" className="menu-text">
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link to="spaces" className="menu-text">
+              Spaces
+            </Link>
+          </li>
           <li>Recents</li>
           <li>Help</li>
           <li>Settings</li>
@@ -51,13 +59,10 @@ function ClientDashboard() {
             <p>logout</p>
           </li>
         </ul>
-        {/* <p onClick={handleLogoutClick}>
-          <span class="material-symbols-outlined">logout</span> logout
-        </p> */}
       </div>
 
       <div className="client-view-content">
-        <h1>Welcome {client?.data?.username}</h1>
+        <Outlet />
       </div>
     </div>
   );

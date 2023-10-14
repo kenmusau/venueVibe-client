@@ -35,7 +35,7 @@ function LogInForm() {
           confirmButtonText: "Okay",
         });
         // console.log(res);
-        navigate("/clientDashboard");
+        navigate("/client");
       })
       .catch((error) => {
         setErrors(error.response.data?.error);
