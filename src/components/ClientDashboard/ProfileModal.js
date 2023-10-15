@@ -1,13 +1,34 @@
-// import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import React, { useContext, useState } from "react";
+import { ClientContext } from "../../context/ClientContext";
 import "./ProfileModal.css";
 function ProfileModal({ onCancel, onClose }) {
-  const { register, handleSubmit } = useForm();
+  const { client } = useContext(ClientContext);
+  console.log(client);
+  const { username, first_name, last_name, email, password, profile_picture } =
+    client?.data;
 
-  const onSubmit = (data) => {
-    // Handle form submission, e.g., update user profile
-    console.log(data);
-  };
+  const [formData, updateFormData] = useState({
+    username,
+    first_name,
+    last_name,
+    email,
+    password,
+    profile_picture,
+  });
+
+  function handleChange(event) {
+    const name = event.target.name;
+    let value = event.target.value;
+    updateFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(formData);
+  }
   return (
     <div
       className="modal-container"
@@ -22,34 +43,48 @@ function ProfileModal({ onCancel, onClose }) {
           </div>
         </div>
         <div className="modal-content">
-          <form
-            className="profile-update-form"
-            onSubmit={handleSubmit(onSubmit)}
-          >
+          <form className="profile-update-form" onSubmit={handleSubmit}>
+            <label htmlFor="">Username:</label>
             <input
               className="input-field"
               type="text"
-              {...register("username")}
-              placeholder="Username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
             />
+            <label htmlFor="first_name">First Name:</label>
             <input
               className="input-field"
               type="text"
-              {...register("first_name")}
-              placeholder="First Name"
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleChange}
             />
+            <label htmlFor="last_name">Last Name:</label>
             <input
               className="input-field"
               type="text"
-              {...register("last_name")}
-              placeholder="Last Name"
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange}
             />
+            <label htmlFor="email">Email:</label>
             <input
               className="input-field"
               type="email"
-              {...register("email")}
-              placeholder="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
+            <label htmlFor="profile_picture">Picture</label>
+            <input
+              className="input-field"
+              name="profile_picture"
+              type="file"
+              onChange={handleChange}
+            />
+            {/*
+        
             <input
               className="input-field"
               type="password"
@@ -61,7 +96,7 @@ function ProfileModal({ onCancel, onClose }) {
               type="text"
               {...register("profile_picture")}
               placeholder="Profile Picture URL"
-            />
+            /> */}
             <button className=" submit-button" type="submit">
               Update Profile
             </button>
