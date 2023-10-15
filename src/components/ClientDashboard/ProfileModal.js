@@ -1,7 +1,7 @@
 // import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./ProfileModal.css";
-function ProfileModal() {
+function ProfileModal({ onCancel, onClose }) {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
@@ -12,7 +12,9 @@ function ProfileModal() {
     <div className="modal-container">
       <div className="modal">
         <div className="modal-header">
-          <div className="close">&times;</div>
+          <div className="close" onClick={() => onClose()}>
+            &times;
+          </div>
         </div>
         <div className="modal-content">
           <form
@@ -55,11 +57,17 @@ function ProfileModal() {
               {...register("profile_picture")}
               placeholder="Profile Picture URL"
             />
-            <button className="btn profile-btn-submit">Submit</button>
-            <button className="btn profile-btn-cancel">Cancel</button>
+            <button className=" submit-button" type="submit">
+              Update Profile
+            </button>
           </form>
         </div>
-        <div className="modal-footer"></div>
+        <div className="modal-footer">
+          <button className="btn profile-btn-submit">Submit</button>
+          <button className="btn profile-btn-cancel" onClick={() => onCancel()}>
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   );

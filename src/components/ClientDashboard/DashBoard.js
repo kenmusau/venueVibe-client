@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DashBoard.css";
 import { Link } from "react-router-dom";
+import ProfileModal from "./ProfileModal";
 
 function formatToday(date) {
   const options = {
@@ -13,7 +14,12 @@ function formatToday(date) {
 }
 
 function DashBoard({ client }) {
+  const [modalOpen, setModalOpen] = useState(false);
   const today = formatToday(new Date());
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
   return (
     <div className="client-DashBoard">
       <div className="client-intro">
@@ -27,9 +33,19 @@ function DashBoard({ client }) {
           <div className="client-profile-details">
             <h2 className="client-name">{`${client?.data?.first_name} ${client?.data?.last_name}`}</h2>
             <p>{client?.data?.email}</p>
-            <Link to="/viewProfile" className="client-update-profile-bnt">
+            <Link
+              to="viewProfile"
+              className="client-update-profile-bnt"
+              onClick={() => setModalOpen(true)}
+            >
               View Profile
             </Link>
+            {modalOpen && (
+              <ProfileModal
+                onClose={handleCloseModal}
+                onCancel={handleCloseModal}
+              />
+            )}
           </div>
           <div className="client-profile-pic">
             <img src="#" alt="profile user" />
