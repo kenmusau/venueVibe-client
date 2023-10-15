@@ -1,0 +1,49 @@
+.client-DashBoard {
+  max-height: 100vh;
+  /* background-color: red; */
+  padding: 25px 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  color: #343a40;
+  gap: 30px;
+}
+
+.client-intro {
+  /* background-color: green; */
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.client-intro-greeting h1 {
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: #495057;
+}
+
+.client-intro-greeting h1 span {
+  font-weight: 900;
+}
+
+.client-profile-pic {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #ced4da;
+  margin-right: 20px;
+}
+
+.client-profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.client-time {
+  font-size: 24px;
+  font-style: italic;
+}
+.client-dashboard-content {
+  background-color: orange;
+  height: 70%;
+}

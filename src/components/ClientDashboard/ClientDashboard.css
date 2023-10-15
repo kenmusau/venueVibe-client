@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;600&display=swap");
 
 .client-dashboard {
+  color: #343a40;
   height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -58,7 +59,7 @@
 }
 
 .sidebar-menu li a:hover {
-  color: #ff5d22;
+  color: #ff922b;
 }
 
 .sidebar-menu li.active a {
