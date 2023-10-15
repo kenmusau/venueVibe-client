@@ -9,7 +9,12 @@ function ProfileModal({ onCancel, onClose }) {
     console.log(data);
   };
   return (
-    <div className="modal-container">
+    <div
+      className="modal-container"
+      onClick={(e) => {
+        if (e.target.className === "modal-container") onClose();
+      }}
+    >
       <div className="modal">
         <div className="modal-header">
           <div className="close" onClick={() => onClose()}>
