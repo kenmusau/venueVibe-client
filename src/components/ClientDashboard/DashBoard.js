@@ -20,7 +20,7 @@ function DashBoard({ client }) {
           <h1>
             Welcome, <span>{client?.data?.username}!</span>
           </h1>
-          <p className="client-time">Today is {today}</p>
+          <p className="client-current-time">Today is {today}</p>
         </div>
         <div className="client-intro-profile">
           <div className="client-profile-details">

@@ -19,6 +19,7 @@
   font-size: 38px;
   margin-bottom: 30px;
   color: #495057;
+  font-weight: 400;
 }
 
 .client-intro-greeting h1 span {
@@ -31,6 +32,12 @@
   gap: 30px;
 }
 
+.client-profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .client-profile-pic {
   width: 100px;
   height: 100px;
@@ -40,10 +47,6 @@
   margin-right: 20px;
 }
 
-.client-name {
-  margin-bottom: 5px;
-}
-
 .client-profile-pic img {
   width: 100%;
   height: 100%;
@@ -51,21 +54,22 @@
 }
 
 .client-update-profile-bnt {
+  align-self: center;
   padding: 8px 24px;
   border-radius: 100px;
   border: none;
   background-color: #ff922b;
   color: white;
   cursor: pointer;
-  margin-top: 5px;
 }
 
 .client-update-profile-bnt:hover {
   background-color: #ff5d22;
 }
-.client-time {
+.client-current-time {
   font-size: 24px;
   font-style: italic;
+  font-weight: 300;
 }
 .client-dashboard-content {
   background-color: orange;
