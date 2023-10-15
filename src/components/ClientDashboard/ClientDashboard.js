@@ -32,7 +32,9 @@ function ClientDashboard() {
         <ul className="sidebar-menu">
           <li
             className={
-              location.pathname === "/client/dashboard" ? "active" : ""
+              location.pathname.includes("/viewProfile") === "/client/dashboard"
+                ? "active"
+                : ""
             }
           >
             <Link to="dashboard">Dashboard</Link>

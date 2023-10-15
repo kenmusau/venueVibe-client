@@ -10,6 +10,7 @@ import { useContext } from "react";
 import Help from "../ClientDashboard/Help";
 import Settings from "../ClientDashboard/Settings";
 import Recents from "../ClientDashboard/Recents";
+import ProfileModal from "../ClientDashboard/ProfileModal";
 
 function MainRoutes() {
   const { client } = useContext(ClientContext);
@@ -19,9 +20,13 @@ function MainRoutes() {
       <Routes>
         <Route path="/" element={<SignUpForm />} />
         <Route path="/login" element={<LogInForm />} />
+        <Route path="viewProfile" element={<ProfileModal />} />
         <Route path="/client" element={<ClientDashboard />}>
           <Route path="/client" element={<Navigate replace to="dashboard" />} />
-          <Route path="dashboard" element={<DashBoard client={client} />} />
+          <Route
+            path="dashboard"
+            element={<DashBoard client={client} />}
+          ></Route>
           <Route path="spaces" element={<SpacesList />} />
           <Route path="recents" element={<Recents />} />
           <Route path="help" element={<Help />} />
