@@ -26,6 +26,7 @@ function DashBoard({ client }) {
           <div className="client-profile-details">
             <h2 className="client-name">{`${client?.data?.first_name} ${client?.data?.last_name}`}</h2>
             <p>{client?.data?.email}</p>
+            <button className="client-update-profile-bnt">View Profile</button>
           </div>
           <div className="client-profile-pic">
             <img src="#" alt="profile user" />

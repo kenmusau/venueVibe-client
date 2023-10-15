@@ -1,7 +1,7 @@
 .client-DashBoard {
   max-height: 100vh;
   /* background-color: red; */
-  padding: 25px 50px 0 50px;
+  padding: 25px 100px 0 50px;
   display: flex;
   flex-direction: column;
   color: #343a40;
@@ -10,7 +10,7 @@
 
 .client-intro {
   /* background-color: green; */
-  height: 20%;
+  height: 30%;
   display: flex;
   justify-content: space-between;
 }
@@ -41,7 +41,7 @@
 }
 
 .client-name {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .client-profile-pic img {
@@ -49,11 +49,25 @@
   height: 100%;
   object-fit: cover;
 }
+
+.client-update-profile-bnt {
+  padding: 8px 24px;
+  border-radius: 100px;
+  border: none;
+  background-color: #ff922b;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.client-update-profile-bnt:hover {
+  background-color: #ff5d22;
+}
 .client-time {
   font-size: 24px;
   font-style: italic;
 }
 .client-dashboard-content {
   background-color: orange;
-  height: 70%;
+  height: 60%;
 }
