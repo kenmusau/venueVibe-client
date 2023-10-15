@@ -25,6 +25,12 @@
   font-weight: 900;
 }
 
+.client-intro-profile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
 .client-profile-pic {
   width: 100px;
   height: 100px;
@@ -32,6 +38,10 @@
   border-radius: 50%;
   border: 1px solid #ced4da;
   margin-right: 20px;
+}
+
+.client-name {
+  margin-bottom: 10px;
 }
 
 .client-profile-pic img {

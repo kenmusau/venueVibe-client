@@ -23,12 +23,12 @@ function DashBoard({ client }) {
           <p className="client-time">Today is {today}</p>
         </div>
         <div className="client-intro-profile">
+          <div className="client-profile-details">
+            <h2 className="client-name">{`${client?.data?.first_name} ${client?.data?.last_name}`}</h2>
+            <p>{client?.data?.email}</p>
+          </div>
           <div className="client-profile-pic">
             <img src="#" alt="profile user" />
-          </div>
-          <div className="client-profile-details">
-            <h3>client.name</h3>
-            <h3>client.email</h3>
           </div>
         </div>
       </div>
