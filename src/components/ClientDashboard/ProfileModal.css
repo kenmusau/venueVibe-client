@@ -29,6 +29,15 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.profile-update-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-update-form label {
+  font-weight: 800;
+}
+
 .input-field {
   width: 100%;
   padding: 10px;

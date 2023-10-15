@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ClientContext } from "../../context/ClientContext";
 import "./ProfileModal.css";
-function ProfileModal({ onCancel, onClose }) {
+function ProfileModal({ onClose }) {
   const { client } = useContext(ClientContext);
   console.log(client);
   const { username, first_name, last_name, email, password, profile_picture } =
@@ -83,31 +83,18 @@ function ProfileModal({ onCancel, onClose }) {
               type="file"
               onChange={handleChange}
             />
-            {/*
-        
-            <input
-              className="input-field"
-              type="password"
-              {...register("password_digest")}
-              placeholder="Password"
-            />
-            <input
-              className="input-field"
-              type="text"
-              {...register("profile_picture")}
-              placeholder="Profile Picture URL"
-            /> */}
+
             <button className=" submit-button" type="submit">
               Update Profile
             </button>
           </form>
         </div>
-        <div className="modal-footer">
+        {/* <div className="modal-footer">
           <button className="btn profile-btn-submit">Submit</button>
           <button className="btn profile-btn-cancel" onClick={() => onCancel()}>
             Cancel
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

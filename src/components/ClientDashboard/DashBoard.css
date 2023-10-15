@@ -24,6 +24,7 @@
 
 .client-intro-greeting h1 span {
   font-weight: 900;
+  font-style: italic;
 }
 
 .client-intro-profile {

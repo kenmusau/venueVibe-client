@@ -43,7 +43,7 @@ function DashBoard({ client }) {
             {modalOpen && (
               <ProfileModal
                 onClose={handleCloseModal}
-                onCancel={handleCloseModal}
+                // onCancel={handleCloseModal}
               />
             )}
           </div>
