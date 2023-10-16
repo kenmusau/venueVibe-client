@@ -16,7 +16,7 @@ function SpacesList() {
   }, [setSpaces]);
   return (
     <div className="space-list">
-      <h1>View spaces list</h1>
+      <h1 className="space-list-header">Recent Offers</h1>
       <li className="cols-space-grid">
         {spaces.map((space) => (
           <SpaceCard key={space.id} space={space} />

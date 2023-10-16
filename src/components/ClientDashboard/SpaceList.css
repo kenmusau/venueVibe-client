@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.space-list-header {
+  margin-bottom: 20px;
+}
+
 .cols-space-grid {
   display: grid;
   grid-template-columns: repeat(3, 400px);
