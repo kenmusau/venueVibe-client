@@ -1,7 +1,7 @@
 // ContactUs.jsx
 
 import React from 'react';
-import Navbar from './navbar';
+import Navbar from './Navbar';
 import './ContactUs.css';
 
 function ContactUs() {
