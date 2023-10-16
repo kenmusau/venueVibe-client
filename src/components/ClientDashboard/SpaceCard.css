@@ -1,3 +1,63 @@
 .space-card {
-  outline: 2px solid red;
+  background-color: #fff;
+  /* outline: 2px solid red; */
+  cursor: pointer;
+  height: 350px;
+  width: 300px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 20px 30px 0px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.space-card:hover {
+  box-shadow: 0 20px 30px 0px rgba(0, 0, 0, 0.15);
+}
+
+.space-card img {
+  height: 190px;
+  width: 300px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: transform 0.5s, filter 1.5s ease-in-out;
+}
+
+.space-card img:hover {
+  transform: scale(1.1);
+}
+
+.space-card-content {
+  padding: 30px 20px;
+  font-size: 15px;
+}
+
+.space-card-name {
+  margin-bottom: 10px;
+}
+
+.location-icon {
+  width: 14px;
+  height: 14px;
+  stroke: #2f9e44;
+}
+
+.space-location {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.space-card-location {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.space-card-description {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.space-card-price {
+  color: #868e96;
+  font-size: 14px;
 }
