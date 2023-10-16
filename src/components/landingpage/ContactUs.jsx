@@ -1,88 +1,34 @@
+// ContactUs.jsx
+
 import React from 'react';
 import Navbar from './navbar';
+import './ContactUs.css';
 
 function ContactUs() {
   return (
     <div>
-        <Navbar />
-        <div className="bg-gray-100 py-16">
-            <div className="container mx-auto text-center">
-                <h2
-                className="text-4xl font-bold mb-8"
-                style={{
-                    color: "black",
-                    fontSize: 48,
-                    fontFamily: 'Inter',
-                    fontWeight: '700',
-                    wordWrap: 'break-word',
-                }}
-                >
-                    Contact Us
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="bg-white p-6 rounded-md shadow-md">
-                        <h3
-                        className="text-xl font-bold mb-4"
-                        style={{
-                            color: 'black',
-                            fontSize: 24,
-                            fontFamily: 'Inter',
-                            fontWeight: '700',
-                            wordWrap: 'break-word',
-                        }}
-                        >
-                            Email
-                        </h3>
-                        <p
-                        className="text-gray-600"
-                        style={{
-                            color: 'black',
-                            fontSize: 24,
-                            fontFamily: 'Inter',
-                            fontWeight: '700',
-                            wordWrap: 'break-word',
-                          }}
-                        >
-                          <a href="mailto:info@venuevibe.com">info@venuevibe.com</a>
-                        </p>
-                    </div>
-                    <div className="bg-white p-6 rounded-md shadow-md">
-              <h3
-                className="text-xl font-bold mb-4"
-                style={{
-                  color: 'black',
-                  fontSize: 24,
-                  fontFamily: 'Inter',
-                  fontWeight: '700',
-                  wordWrap: 'break-word',
-                }}
-              >
-                Phone
-              </h3>
-              <p
-                className="text-gray-600"
-                style={{
-                  color: 'black',
-                  fontSize: 24,
-                  fontFamily: 'Inter',
-                  fontWeight: '700',
-                  wordWrap: 'break-word',
-                }}
-              >
-                (252) 555-0126
+      <Navbar />
+      <div className="bg-gray-100 py-16">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-8 contact-title">
+            Contact Us
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Email */}
+            <div className="bg-white p-6 rounded-md shadow-md contact-info">
+              <h3 className="text-xl font-bold mb-4">Email</h3>
+              <p className="text-gray-600">
+                <a href="mailto:info@venuevibe.com">info@venuevibe.com</a>
               </p>
             </div>
-        </div>
-        <h2
-            className="text-4xl font-bold mb-8 mt-16"
-            style={{
-              color: 'black',
-              fontSize: 48,
-              fontFamily: 'Inter',
-              fontWeight: '700',
-              wordWrap: 'break-word',
-            }}
-          >
+            {/* Phone */}
+            <div className="bg-white p-6 rounded-md shadow-md contact-info">
+              <h3 className="text-xl font-bold mb-4">Phone</h3>
+              <p className="text-gray-600">(252) 555-0126</p>
+            </div>
+          </div>
+
+          <h2 className="text-4xl font-bold mb-8 mt-16 social-title">
             Our Socials
           </h2>
           <div className="flex items-center gap-8">
@@ -90,6 +36,7 @@ function ContactUs() {
             {[1, 2, 3, 4].map((index) => (
               <div
                 key={index}
+                className="social-icon"
                 style={{
                   width: '70px',
                   height: '70px',
@@ -101,20 +48,11 @@ function ContactUs() {
           </div>
         </div>
       </div>
-      
-      <div
-        className="bg-gray-100 py-8 text-center"
-        style={{
-          color: 'black',
-          fontSize: 24,
-          fontFamily: 'Inter',
-          fontWeight: '500',
-          wordWrap: 'break-word',
-        }}
-      >
+
+      <div className="bg-gray-100 py-8 text-center footer-text">
         &copy; 2023. All rights reserved. Venue-Vibe
       </div>
-      
+
       <img
         style={{
           width: '100%',
@@ -123,7 +61,7 @@ function ContactUs() {
           borderRadius: '10px',
         }}
         src=""
-        alt=""
+        alt="Decorative background"
       />
     </div>
   );
