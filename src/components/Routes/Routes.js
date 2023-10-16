@@ -37,3 +37,34 @@ function MainRoutes() {
 }
 
 export default MainRoutes;
+
+// <div>
+//       {client ? (
+//         <div>
+//           <Routes>
+//             <Route path="/client" element={<ClientDashboard />}>
+//               <Route
+//                 path="/client"
+//                 element={<Navigate replace to="dashboard" />}
+//               />
+//               <Route path="dashboard" element={<DashBoard client={client} />}>
+//                 <Route path="viewProfile" element={<ProfileModal />} />
+//               </Route>
+//               <Route path="spaces" element={<SpacesList />} />
+//               <Route path="recents" element={<Recents />} />
+//               <Route path="help" element={<Help />} />
+//               <Route path="settings" element={<Settings />} />
+//               <Route path="*" element={<PageNotFound />} />
+//             </Route>
+//           </Routes>
+//         </div>
+//       ) : (
+//         <div>
+//           <Routes>
+//             <Route path="/" element={<SignUpForm />} />
+//             <Route path="/login" element={<LogInForm />} />
+//             <Route path="*" element={<PageNotFound />} />
+//           </Routes>
+//         </div>
+//       )}
+//     </div>

@@ -1,0 +1,10 @@
+.space-list {
+  padding-top: 20px;
+}
+
+.cols-space-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 10px);
+  justify-content: space-around;
+  justify-items: center;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import "./DashBoard.css";
 import { Link } from "react-router-dom";
 import ProfileModal from "./ProfileModal";
@@ -40,15 +41,17 @@ function DashBoard({ client }) {
             >
               Update Profile
             </Link>
-            {modalOpen && (
-              <ProfileModal
-                onClose={handleCloseModal}
-                // onCancel={handleCloseModal}
-              />
-            )}
+            {modalOpen &&
+              createPortal(
+                <ProfileModal
+                  onClose={handleCloseModal}
+                  // onCancel={handleCloseModal}
+                />,
+                document.body
+              )}
           </div>
           <div className="client-profile-pic">
-            <img src="#" alt="profile user" />
+            <img src={client?.data?.profile_picture} alt="profile user" />
           </div>
         </div>
       </div>

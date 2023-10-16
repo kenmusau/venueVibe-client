@@ -1,7 +1,7 @@
 .client-DashBoard {
   max-height: 100vh;
   /* background-color: red; */
-  padding: 25px 100px 0 50px;
+  padding: 25px 100px 0 10px;
   display: flex;
   flex-direction: column;
   color: #343a40;
@@ -16,7 +16,7 @@
 }
 
 .client-intro-greeting h1 {
-  font-size: 38px;
+  font-size: 28px;
   margin-bottom: 30px;
   color: #495057;
   font-weight: 400;
@@ -71,7 +71,7 @@
   background-color: #ff5d22;
 }
 .client-current-time {
-  font-size: 24px;
+  font-size: 20px;
   font-style: italic;
   font-weight: 300;
 }

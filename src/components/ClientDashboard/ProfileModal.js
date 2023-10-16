@@ -1,11 +1,20 @@
 import React, { useContext, useState } from "react";
 import { ClientContext } from "../../context/ClientContext";
 import "./ProfileModal.css";
+import { baseUrl } from "../../utils";
+import axios from "axios";
 function ProfileModal({ onClose }) {
-  const { client } = useContext(ClientContext);
+  const { client, setClient } = useContext(ClientContext);
   console.log(client);
-  const { username, first_name, last_name, email, password, profile_picture } =
-    client?.data;
+  const {
+    id,
+    username,
+    first_name,
+    last_name,
+    email,
+    password,
+    profile_picture,
+  } = client?.data;
 
   const [formData, updateFormData] = useState({
     username,
@@ -27,7 +36,13 @@ function ProfileModal({ onClose }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    axios
+      .patch(`${baseUrl}/clients/${id}`, formData)
+      .then((response) => {
+        console.log(response);
+        setClient(response);
+      })
+      .catch((error) => console.log(error.message));
   }
   return (
     <div
@@ -76,7 +91,7 @@ function ProfileModal({ onClose }) {
               value={formData.email}
               onChange={handleChange}
             />
-            <label htmlFor="profile_picture">Picture</label>
+            <label htmlFor="profile_picture">Profile Picture</label>
             <input
               className="input-field"
               name="profile_picture"

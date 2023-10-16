@@ -10,19 +10,20 @@ function ClientProvider({ children }) {
   useEffect(() => {
     fetch(`${baseUrl}/me`)
       .then((r) => {
-        if (!r.ok) {
+        if (r.ok) {
+          r.json().then((user) => {
+            console.log("Fetched client:", user);
+            console.log(user);
+            setClient(user);
+          });
+        } else {
           throw new Error("Network response was not ok");
         }
-        return r.json();
-      })
-      .then((user) => {
-        console.log("Fetched client:", user);
-        setClient(user);
       })
       .catch((error) => {
         console.error("Error fetching client:", error);
       });
-  }, [setClient]);
+  }, []);
 
   // console.log(client);
   return (
