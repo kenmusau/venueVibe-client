@@ -12,3 +12,10 @@
   /* justify-content: center;
   justify-items: center; */
 }
+
+.space-list-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

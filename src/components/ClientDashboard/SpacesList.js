@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./SpaceList.css";
 import { baseUrl } from "../../utils";
 import SpaceCard from "./SpaceCard";
+import { ClipLoader } from "react-spinners";
 function SpacesList() {
   const [spaces, setSpaces] = useState([]);
   const [loading, isLoading] = useState(false);
@@ -22,9 +23,10 @@ function SpacesList() {
 
   if (loading)
     return (
-      <div className="space-list">
-        <h1 className="space-list-header">Recent Offers</h1>
-        <p>Loading ...</p>
+      <div className="space-list-loader">
+        {/* <h1 className="space-list-header">Recent Offers</h1>
+        <p>Loading ...</p> */}
+        <ClipLoader color="#ff5d22" />
       </div>
     );
   return (
