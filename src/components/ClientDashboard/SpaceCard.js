@@ -2,7 +2,6 @@ import React from "react";
 import "./SpaceCard.css";
 
 function SpaceCard({ space }) {
-  console.log(space);
   const { name, image, description, location, price } = space;
   return (
     <div className="space-card">

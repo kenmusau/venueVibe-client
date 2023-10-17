@@ -6,11 +6,9 @@ import { baseUrl } from "../../utils";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 function ClientDashboard() {
-  const { client, setClient } = useContext(ClientContext);
+  const { setClient } = useContext(ClientContext);
 
   const location = useLocation();
-
-  console.log(client?.data);
 
   const navigate = useNavigate();
 

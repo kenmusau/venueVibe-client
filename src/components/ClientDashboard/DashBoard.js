@@ -56,7 +56,14 @@ function DashBoard({ client }) {
         </div>
       </div>
       <div className="client-dashboard-content">
-        <h2>Some content here</h2>
+        <h2 className="client-dashboard-header-message">
+          Find your next perfect <span>HangOut</span> <br /> chill spot with
+          ease.
+        </h2>
+        <p>
+          VenueVibe will help you find your next spot fast, easy and
+          comfortable. <br /> Our expert support is always available.
+        </p>
       </div>
     </div>
   );

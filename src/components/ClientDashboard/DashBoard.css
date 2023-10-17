@@ -13,6 +13,8 @@
   height: 30%;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #adb5bd;
+  padding-bottom: 20px;
 }
 
 .client-intro-greeting h1 {
@@ -75,7 +77,22 @@
   font-style: italic;
   font-weight: 300;
 }
+
+.client-dashboard-header-message {
+  font-size: 32px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.client-dashboard-header-message span {
+  color: #868e96;
+}
+
+.client-dashboard-content p {
+  line-height: 1.8;
+}
 .client-dashboard-content {
-  background-color: orange;
+  /* background-color: orange; */
   height: 60%;
+  color: #495057;
 }
