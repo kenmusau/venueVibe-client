@@ -6,7 +6,7 @@ import { baseUrl } from "../../utils";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { ClientContext } from "../../context/ClientContext";
-
+import { PulseLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 
 function LogInForm() {
@@ -62,7 +62,7 @@ function LogInForm() {
           ))}
 
           <button className="signup-btn">
-            {loading ? "Please Wait..." : "Submit"}
+            {loading ? <PulseLoader color="#FFF" /> : "Submit"}
           </button>
         </form>
         <p className="login-signup-toogle">
