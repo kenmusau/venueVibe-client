@@ -6,17 +6,26 @@ const ClientContext = createContext();
 
 function ClientProvider({ children }) {
   const [client, setClient] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetch(`${baseUrl}/me`).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setClient(user));
-      }
-    });
+    const client = JSON.parse(localStorage.getItem("client"));
+    if (client) {
+      setClient(client);
+      setIsLoggedIn(true);
+    } else {
+      fetch(`${baseUrl}/me`).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => {
+            setClient(user);
+          });
+        }
+      });
+    }
   }, []);
 
   return (
-    <ClientContext.Provider value={{ client, setClient }}>
+    <ClientContext.Provider value={{ client, setClient, isLoggedIn }}>
       {children}
     </ClientContext.Provider>
   );

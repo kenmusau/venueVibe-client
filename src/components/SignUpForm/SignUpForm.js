@@ -42,8 +42,6 @@ function SignUpForm() {
       });
   };
 
-  console.log(errors);
-
   return (
     <div className="sign-up-container">
       <div className="form-details">

@@ -16,6 +16,7 @@ function ClientDashboard() {
     fetch(`${baseUrl}/logout`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setClient(null);
+        localStorage.removeItem("client");
         navigate("/login");
       }
     });

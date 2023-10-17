@@ -31,7 +31,7 @@ function SpaceCard({ space }) {
           <p className="space-card-location">{location}</p>
         </div>
         <p className="space-card-description">{description}</p>
-        <p className="space-card-price">Ksh {price} /hr</p>
+        <p className="space-card-price">${price} /hr</p>
       </div>
     </div>
   );

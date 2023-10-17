@@ -1,5 +1,9 @@
 .page-not-found {
-  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  /* /* text-align: center; */
   margin-top: 50px;
 }
 

@@ -36,6 +36,7 @@ function LogInForm() {
         });
         // console.log(res);
         navigate("/client");
+        localStorage.setItem("client", JSON.stringify(res));
       })
       .catch((error) => {
         setErrors(error.response.data?.error);
