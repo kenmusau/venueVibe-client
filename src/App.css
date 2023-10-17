@@ -1,14 +1,29 @@
+html{
+    height: 100%;
+}
 
+
+body{
+    margin: 0;
+    height: 100%;
+}
+
+#root{
+    height: 100%;
+}
+.App{
+    height: 100%;
+}
 /* LOGIN */
 
 
 
 
 .login{
-    height: 100vh;
-    padding-top: 20px ;
+    height: 100%;
+    /* padding-top: 20px ;
     padding-left: 40px ;
-    padding-bottom: 40px ;
+    padding-bottom: 40px ; */
     background-color: #D9D9D9;
     /* background-color: #037E00; */
     /* border: 10px solid black; */
@@ -18,7 +33,7 @@
     margin-top: 5%;
     border: 1px solid gray;
     /* margin: 5% ; */
-    height: 85%;
+    height: 100%;
     margin-left: 30%;
     border-radius: 5px;
     display: flex;
@@ -381,3 +396,4 @@
     color: #767575;
 }
    
+
