@@ -1,9 +1,21 @@
 .space-item {
   width: 100%;
+  padding-right: 50px;
 }
 
 .space-item-name {
   margin-bottom: 20px;
+}
+
+.space-item-details-amenities {
+  display: flex;
+}
+
+.space-item-details {
+  flex: 1;
+}
+.space-amenities {
+  flex: 1;
 }
 
 .space-item-details img {
@@ -39,8 +51,71 @@
 .space-item-location {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
+
+.space-item-description {
+  margin-bottom: 20px;
+}
+
+.space-item-description span {
+  font-weight: 900;
+}
+
+.space-booked {
+  background-color: #c92a2a;
+  padding: 8px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.space-available {
+  background-color: #51cf66;
+  padding: 8px 20px;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.space-book-now {
+  background-color: orangered;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 4px;
+}
+
+.space-amenities h2 {
+  margin-bottom: 20px;
+}
+
+.space-amenities li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.space-amenities p {
+  margin-bottom: 20px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.amenities-icon {
+  width: 18px;
+  height: 18px;
+  stroke: orangered;
+}
+
 /* 
 .space-item-details-booking{
     display: flex;
