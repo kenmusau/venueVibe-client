@@ -26,7 +26,7 @@ function AddUser({setNewUser}) {
             return response.json()
         })
         .then(data => setNewUser(data))
-        console.log(formValues)
+        // console.log(formValues)
     }
     const { register, handleSubmit} = useForm()
   return (

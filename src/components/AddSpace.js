@@ -1,6 +1,26 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
 function AddSpace() {
+
+    const {register, handleSubmit} = useForm()
+
+    const handleFormSubmit = (formValues) =>{
+        fetch("https://venuevibe-server.onrender.com/spaces",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formValues)
+        })
+        .then(response => {
+            if(!response.ok){
+                throw new Error("An error occured")
+            }
+            return response.json()
+        })
+        .then(data => console.log(data))
+    }
   return (
     <div className='add-space'>
         <div className='first'>
@@ -36,21 +56,18 @@ function AddSpace() {
         <button>back</button>
         <div className='add-user-div'>
             <h3>Submit details to save user </h3>
-            <form className='add-user-form'>
-                <label>First name:    
-                <input/>
+            <form className='add-user-form' onClick={handleSubmit(handleFormSubmit)}>
+                <label>Space name:    
+                <input {...register("name")}/>
                 </label>
-                <label>Last Name:
-                    <input/>
+                <label>Space Location:
+                    <input  {...register("last_name")}/>
                 </label>
-                <label>Avatar:
-                    <input/>
+                <label>Image:
+                    <input {...register("profile_picture")}/>
                 </label>
-                <label>Email:
-                    <input/>
-                </label>
-                <label>Spaces Name:
-                    <input/>
+                <label>Price per hour:
+                    <input {...register("price")}/>
                 </label>
                 <button type='submit'>Submit</button>
             </form>

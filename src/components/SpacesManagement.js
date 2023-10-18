@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function SpacesManagement() {
+function SpacesManagement({newSpace}) {
 
     const [datas, setDatas] = useState([])
 
@@ -9,9 +9,11 @@ function SpacesManagement() {
         fetch("https://venuevibe-server.onrender.com/spaces")
         .then(resp => resp.json())
         .then(cont => setDatas(cont))
+        
     },[])
-
+    console.log(newSpace)
     console.log(datas)
+    
     
     const data = [
         {

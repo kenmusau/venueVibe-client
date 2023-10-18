@@ -7,12 +7,14 @@ function UserManagement({newUser}) {
   const [users, setUsers] = useState([])
 
   useEffect(()=>{
-    fetch("https://venuevibe-server.onrender.com/clients")
-    .then(resp => resp.json())
-    .then(cont => setUsers(cont))
+    // fetch("https://venuevibe-server.onrender.com/clients")
+    // .then(resp => resp.json())
+    // .then(cont => 
+    setUsers(user)
+    setUsers([...user, newUser])
 },[,newUser])
 
-  
+
   const user = [
     {
         image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
