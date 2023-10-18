@@ -6,7 +6,8 @@ import { createPortal } from "react-dom";
 function Space({ selectedSpace, onSelectedSpace }) {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const { image, name, location, status, description, price } = selectedSpace;
+  const { id, image, name, location, status, description, price } =
+    selectedSpace;
 
   const handleCloseModal = () => {
     setModalOpen(false);
@@ -45,7 +46,7 @@ function Space({ selectedSpace, onSelectedSpace }) {
           <p className="space-item-description">
             <span>Description:</span> {description}
           </p>
-          <p className="space-cost">Charges: Ksh {price} per hour </p>
+          <p className="space-cost">Charges: Ksh {price} per night </p>
 
           <div className="space-reservation">
             <button className={status ? "space-booked" : "space-available"}>
@@ -65,6 +66,8 @@ function Space({ selectedSpace, onSelectedSpace }) {
                   onClose={handleCloseModal}
                   onCancel={handleCloseModal}
                   onSubmit-={handleCloseModal}
+                  spaceId={id}
+                  spaceAmount={price}
                 />,
                 document.body
               )}

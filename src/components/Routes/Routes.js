@@ -11,7 +11,6 @@ import Help from "../ClientDashboard/Help";
 import Settings from "../ClientDashboard/Settings";
 import Recents from "../ClientDashboard/Recents";
 import ProfileModal from "../ClientDashboard/ProfileModal";
-import BookingModal from "../ClientDashboard/BookingModal";
 
 const useAuth = () => {
   const client = localStorage.getItem("client");
