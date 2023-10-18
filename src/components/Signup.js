@@ -1,33 +1,22 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 
 function Signup({ onSave }) {
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit, formState } = useForm()
 
-    const [inputs, setInputs] = useState({
-        first_name: "",
-        last_name: "",
-        email: "",
-        password: "",
-        username: "",
-        profile_picture: ""
+    const schema = z.object({
+        first_name: z.string(),
+        last_name: z.string(),
+        email: z.email().reqiured(),
+        username: z.string(),
+        profile_picture: z.url(),
+        password: z.string()
     })
 
-    const { first_name, last_name, email, password, username, profile_picture } = inputs;
-
-    // const [firstName, setFirstName] = useState("")
-    // const [secondName, setSecondName] = useState("")
-    // const [email, setEmail] = useState("")
-    // const [password, setPassword] = useState("")
-    // const [category, setCategory] = useState("")
-
-    function handleInputs(e){
-        setInputs({
-            ...inputs,
-            [e.target.name] : e.target.value,
-        })
-    }
+    const { errors } = formState
 
     function handleFormSubmit(formValues){
         // fetch("",{
@@ -59,22 +48,26 @@ function Signup({ onSave }) {
                                 {...register("first_name")}
                                 />
                                 <label className='firstname'>First Name</label>
+                                <small style={{color: "red"}}>{errors.first_name?.message}</small>
                             </div>
                             <div>
                                 <input
                                 {...register("last_name")}
                                 />
                                 <label  className='lastname'>Last Name</label>
+                                <small style={{color: "red"}}>{errors.last_name?.message}</small>
                             </div>
                         </div>
                         <div className='user-preference'>
                                 <div className='username-input'>
                                     <input {...register("username")}/>
                                     <label className='username'>Username</label>  
+                                    <small style={{color: "red"}}>{errors.username?.message}</small>
                                 </div>
                                 <div className='picture-div'>
-                                    <input {...register("profile_picture")} type='file'/>
+                                    <input {...register("profile_picture")} />
                                     <label className='profile-picture'>Profile Picture</label>  
+                                    <small style={{color: "red"}}>{errors.profile_picture?.message}</small>
                                 </div>
                         </div>
                         <div className='email-div'>
@@ -82,12 +75,14 @@ function Signup({ onSave }) {
                                 {...register("email")}       
                             />
                             <label className='email'>Email</label>  
+                            <small style={{color: "red"}}>{errors.email?.message}</small>
                         </div>
                             <div className='password-div'>
                                 <input
-                                {...register("password")}
+                                {...register("password")} type='password'
                                 />
-                                <label className='password'>Password</label>  
+                                <label className='password'>Password</label> 
+                                <small style={{color: "red"}}>{errors.password?.message}</small>
                             </div>
                         <button className='signup-button'>Create Account</button>
                     </div>

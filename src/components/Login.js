@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { response } from 'express';
 
 const schema = z.object({
     email: z.string().email(),
@@ -15,9 +16,32 @@ function Login({onSave}) {
     const {errors} = formState
 
     function handleFormSubmit(formValues){
-        console.log(formValues)
-        onSave(formValues)
-    }
+        if (formValues.first_name == ""){
+        fetch("https://venuevibe-server.onrender.com/adminlogin")
+        .then(response =>{
+            if (!response.ok){
+                throw new Error("Login failed")
+            }
+            return response.json()
+        })
+        .then(response =>{
+            onSave(formValues)
+            console.log(formVal)
+        })
+        }
+
+        fetch("https://venuevibe-server.onrender.com/clientLogin")
+        .then(response => {
+            if (!response.ok){
+                throw new Error("Login failed")
+            }
+            return response.json()
+        })
+        .then(response =>{
+            onSave(formValues)
+            console.log
+        })
+        }
 
   return (
     <div className='login'>
