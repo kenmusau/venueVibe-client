@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { error } from 'console'
+// import { error } from 'console'
+
 
 function AddUser({setNewUser}) {
 

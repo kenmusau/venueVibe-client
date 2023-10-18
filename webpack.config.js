@@ -1,9 +1,6 @@
 // webpack.config.js
-module.exports = {
-    // Other Webpack configuration options...
-    resolve: {
-      fallback: {
-        "console": false
-      },
+export const resolve = {
+    fallback: {
+        "console": require.resolve("console-browserify")
     },
-  };
+};
