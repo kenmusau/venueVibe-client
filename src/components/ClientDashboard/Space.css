@@ -1,0 +1,47 @@
+.space-item {
+  width: 100%;
+}
+
+.space-item-name {
+  margin-bottom: 20px;
+}
+
+.space-item-details img {
+  width: 300;
+  height: 300px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.close-space-btn {
+  padding: 8px 22px;
+  background-color: #c92a2a;
+  color: white;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.space-item-location-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #2f9e44;
+}
+
+.space-location {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.space-item-location {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+/* 
+.space-item-details-booking{
+    display: flex;
+} */

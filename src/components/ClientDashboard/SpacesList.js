@@ -3,9 +3,11 @@ import "./SpaceList.css";
 import { baseUrl } from "../../utils";
 import SpaceCard from "./SpaceCard";
 import { ClipLoader } from "react-spinners";
+import Space from "./Space";
 function SpacesList() {
   const [spaces, setSpaces] = useState([]);
   const [loading, isLoading] = useState(false);
+  const [selectedSpace, setSelectedSpace] = useState(null);
 
   useEffect(() => {
     isLoading(true);
@@ -21,6 +23,13 @@ function SpacesList() {
       });
   }, [setSpaces]);
 
+  console.log(selectedSpace);
+
+  if (selectedSpace)
+    return (
+      <Space selectedSpace={selectedSpace} onSelectedSpace={setSelectedSpace} />
+    );
+
   if (loading)
     return (
       <div className="space-list-loader">
@@ -34,7 +43,11 @@ function SpacesList() {
       <h1 className="space-list-header">Recent Offers</h1>
       <li className="cols-space-grid">
         {spaces.map((space) => (
-          <SpaceCard key={space.id} space={space} />
+          <SpaceCard
+            key={space.id}
+            space={space}
+            onSelectedSpace={setSelectedSpace}
+          />
         ))}
       </li>
     </div>

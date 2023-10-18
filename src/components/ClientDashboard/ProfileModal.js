@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { ClientContext } from "../../context/ClientContext";
 import "./ProfileModal.css";
 import { baseUrl } from "../../utils";
-import axios from "axios";
+// import axios from "axios";
 function ProfileModal({ onClose }) {
   const { client, setClient } = useContext(ClientContext);
-  console.log(client);
+  console.log(client.data);
   const {
     id,
     username,
@@ -36,11 +36,16 @@ function ProfileModal({ onClose }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios
-      .patch(`${baseUrl}/clients/${id}`, formData)
+    fetch(`${baseUrl}/clients/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
       .then((response) => {
-        console.log(response);
-        setClient(response);
+        console.log(response.data.data);
+        // setClient(response);
       })
       .catch((error) => console.log(error.message));
   }

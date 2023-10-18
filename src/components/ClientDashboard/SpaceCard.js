@@ -1,10 +1,11 @@
 import React from "react";
 import "./SpaceCard.css";
 
-function SpaceCard({ space }) {
+function SpaceCard({ space, onSelectedSpace }) {
   const { name, image, description, location, price } = space;
+
   return (
-    <div className="space-card">
+    <div className="space-card" onClick={() => onSelectedSpace(space)}>
       <img src={image} alt={name} className="space-card-image" />
       <div className="space-card-content">
         <h4 className="space-card-name">{name}</h4>
