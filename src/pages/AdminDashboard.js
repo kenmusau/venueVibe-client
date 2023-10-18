@@ -10,13 +10,13 @@ function AdminDashboard() {
   }
   return (
     <div className='admin'>
-    <div className='first'>
-          <a href='/'><h1><span>Venue</span>vibe</h1></a> 
-          <ul>
+      <div className='first'>
+          <a id="company-name" href='/'><h1><span>Venue</span>vibe</h1></a> 
+          <div className='panel-div'>
               <div>
                   <a href='/dashboard' >
                       <div className='dashboard-icon'>
-                          <img src='https://thenounproject.com/api/private/icons/4036046/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0' />
+                          <img src='https://www.svgrepo.com/show/459911/dashboard.svg' />
                           <label>Dashboard</label>
                       </div>
                   </a>
@@ -24,7 +24,7 @@ function AdminDashboard() {
               <div>
                   <a href='/users'>
                       <div className='users-icon'>
-                          <img src='https://thenounproject.com/api/private/icons/216108/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0'/>
+                          <img src='https://www.svgrepo.com/show/473461/users.svg'/>
                           <label>Users</label>
                       </div>
                   </a>
@@ -37,7 +37,7 @@ function AdminDashboard() {
                       </div>
                   </a>
               </div>
-          </ul>
+          </div>
           <div>
             <div className='logout-icon'>
                 <img src="https://static.thenounproject.com/png/1150920-200.png"/>

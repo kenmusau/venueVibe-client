@@ -30,23 +30,42 @@
 
 
 
+
 .admin{
     height: 100%;
     margin: 0;
     display: flex;
     overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.first h1{
+    font-size: 15px;
+}
+
+.first-add-user h1{
+    font-size: 15px;
+}
+.first-add-user a span{
+    text-decoration: solid;
+    font-weight:bolder;
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #FF922B;
 }
 
 .first a span{
-    text-decoration: solid;
-    font-weight:bolder;
-    font-size: 60px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #FF922B;
-  }
-  
-  .dashboard{
-      display: flex;
+}
+
+#company-name{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.dashboard{
+    display: flex;
       height: 560px;
     }
     
@@ -54,25 +73,28 @@
         display: flex;
         flex-direction: column;
         gap: 3em;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         width: 20%;
         height: 100%;
         background-color: #E2E2E5;
     }
     
-    .first-add-user a span{
+    /* .first-add-user a span{
         text-decoration: solid;
         font-weight:bolder;
         font-size: 60px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         color: #FF922B;
-      }
+      } */
 
   .first-add-user{
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    /* border: 1px solid black; */
     width: 20%;
     height: 100%;
-    background-color: #ffffff;
+    background-color: #E2E2E5;
   }
 
   .user-form{
@@ -145,10 +167,11 @@
     font-weight: 100;
   }
   
-  ul{
+  .panel-div{
+    margin-left: 40px;
     display: flex;
     flex-direction: column;
-    gap: 3em;
+    gap: 4.2em;
     justify-content: center;
   }
 
@@ -182,7 +205,7 @@
     gap: 1em;
     display: flex;
     align-items: center;
-    margin-left: -30px;
+    margin-left: -15px;
 }
 
 .spaces-icon{
@@ -193,6 +216,7 @@
 }
 
 .logout-icon{
+    margin-top: 130px;
     margin-left: 20px;
     display: flex;
     align-items: center;
@@ -205,15 +229,16 @@
 }
 
 .dashboard-icon img{
-    width: 50px;
+    width: 30px;
 }
 
 .users-icon img{
-    width: 50px;
+    width: 30px;
+    background-color: #E2E2E5;
 }
 
 .spaces-icon img{
-    width: 40px;
+    width: 35px;
   }
 
   
@@ -249,6 +274,7 @@
   }
   
   .about-div{
+    margin-left: 10px;
     display: flex;
     align-items: center;
   }
@@ -336,6 +362,11 @@
   
   
   /* ADD - USER */
+
+  .add-user-form input{
+    margin: 0;
+    align-self: right;
+  }
   
   .user-form{
       border: 1px solid black;
@@ -411,6 +442,27 @@
     width: 80%;
     padding: 0% 3%;
     overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .admin-spaces-display button{
+    background-color: #FF5D22;
+    margin-left: 750px;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    color: #FFFFFF;
+    border-radius: 8px;
+    padding: 10px 30px;
+    align-items: center;
+    justify-content: center;
+    position: static;
+}
+
+.admin-spaces-display button img{
+    width: 20px ;
+    color: #ffffff;
+    margin-top: -4px;
   }
 
   .admin-spaces-display img{
@@ -420,7 +472,6 @@
   }
 
   .space-div{
-    border: 1px solid wheat;
     width: 95%;
     height: 100%;
     display: flex;
@@ -501,6 +552,7 @@
     align-items: center;
     justify-content: center;
     gap: 2em;
+    row-gap: 1px;
     height: 70%;
   }
   
@@ -535,6 +587,7 @@
     color: #FFFFFF;
     font-weight: 600;
     display: flex;
+    gap: 1em;
     align-items: center;
     justify-content: center;
     padding: 7px 30px;
@@ -542,7 +595,8 @@
   }
   
   .second-header img{
-    width: 30px;
+    width: 20px;
     height: 30px;
+
     
   }

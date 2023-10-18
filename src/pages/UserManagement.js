@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function UserManagement() {
+function UserManagement({newUser}) {
 
-  const users = [
+  const [users, setUsers] = useState([])
+
+  useEffect(()=>{
+    fetch("https://venuevibe-server.onrender.com/clients")
+    .then(resp => resp.json())
+    .then(cont => setUsers(cont))
+},[,newUser])
+
+  
+  const user = [
     {
         image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",
         name: "Alvin Gikunju",
@@ -34,37 +44,43 @@ const handleNavigate = () =>{
     <div className='user-manage'>
       <div className='first'>
         <a href='/'><h1><span>Venue</span>vibe</h1></a> 
-        <ul>
-            <li>
-                <a href='/home/dashboard' >
+        <div className='panel-div'>
+            <div>
+                <a href='/dashboard' >
                     <div className='dashboard-icon'>
-                        <img src='https://thenounproject.com/api/private/icons/4036046/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0' />
+                        <img src='https://www.svgrepo.com/show/459911/dashboard.svg' />
                         <label>Dashboard</label>
                     </div>
                 </a>
-            </li>
-            <li>
+            </div>
+            <div>
                 <a href='/users'>
                     <div className='users-icon'>
-                        <img src='https://thenounproject.com/api/private/icons/216108/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0'/>
+                        <img src='https://www.svgrepo.com/show/473461/users.svg'/>
                         <label>Users</label>
                     </div>
                 </a>
-            </li>
-            <li>
+            </div>
+            <div>
                 <a href='/spaces'>
                     <div className='spaces-icon'>
                         <img src="https://static.thenounproject.com/png/5460319-200.png"/>
                         <label>Spaces</label>
                     </div>
                 </a>
-            </li>
-        </ul>
+            </div>
+        </div>
+        <div>
+            <div className='logout-icon'>
+                <img src="https://static.thenounproject.com/png/1150920-200.png"/>
+                <label>logout</label>
+            </div>
+          </div>
       </div>
       <div className='second'>
             <div className='second-header'>
                 <h1>User Management</h1>
-                <button onClick={handleNavigate}>Add<img src="https://thenounproject.com/api/private/icons/2522721/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0"/></button>
+                <button onClick={handleNavigate}>Add<img src="https://www.svgrepo.com/show/472057/users-plus.svg"/></button>
             </div>
             <div className='trial'>
                 {users.map(user =>{
