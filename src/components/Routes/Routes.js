@@ -11,6 +11,7 @@ import Help from "../ClientDashboard/Help";
 import Settings from "../ClientDashboard/Settings";
 import Recents from "../ClientDashboard/Recents";
 import ProfileModal from "../ClientDashboard/ProfileModal";
+import BookingModal from "../ClientDashboard/BookingModal";
 
 const useAuth = () => {
   const client = localStorage.getItem("client");
@@ -34,11 +35,14 @@ function MainRoutes() {
               <Route path="dashboard" element={<DashBoard client={client} />}>
                 <Route path="viewProfile" element={<ProfileModal />} />
               </Route>
-              <Route path="spaces" element={<SpacesList />} />
+              <Route path="spaces" element={<SpacesList />}>
+                {/* <Route path="booking" element={<BookingModal />} /> */}
+              </Route>
               <Route path="recents" element={<Recents />} />
               <Route path="help" element={<Help />} />
               <Route path="settings" element={<Settings />} />
               <Route path="*" element={<PageNotFound />} />
+              {/* <Route path="booking" element={<BookingModal />} /> */}
             </Route>
           </Routes>
         </div>

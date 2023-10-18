@@ -9,6 +9,7 @@
 
 .space-item-details-amenities {
   display: flex;
+  gap: 30px;
 }
 
 .space-item-details {
@@ -19,10 +20,16 @@
 }
 
 .space-item-details img {
-  width: 300;
   height: 300px;
   border-radius: 5px;
   margin-bottom: 20px;
+}
+
+.space-cost {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
 }
 
 .close-space-btn {
@@ -56,6 +63,7 @@
 
 .space-item-description {
   margin-bottom: 20px;
+  width: 450px;
 }
 
 .space-item-description span {
@@ -85,12 +93,24 @@
 
 .space-book-now {
   background-color: orangered;
+  /* background-color: #1d4ed8; */
   border: none;
   padding: 8px 20px;
   color: white;
   border-radius: 4px;
+  cursor: pointer;
 }
-
+.space-book-now:hover {
+  background-color: rgb(240, 97, 45);
+}
+.space-Not-Available {
+  background-color: rgb(225, 137, 137);
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
 .space-amenities h2 {
   margin-bottom: 20px;
 }

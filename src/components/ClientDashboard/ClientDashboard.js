@@ -40,7 +40,12 @@ function ClientDashboard() {
             <Link to="dashboard">Dashboard</Link>
           </li>
           <li
-            className={location.pathname === "/client/spaces" ? "active" : ""}
+            className={
+              location.pathname === "/client/spaces" ||
+              location.pathname === "/client/spaces/booking"
+                ? "active"
+                : ""
+            }
           >
             <Link to="spaces">Spaces</Link>
           </li>

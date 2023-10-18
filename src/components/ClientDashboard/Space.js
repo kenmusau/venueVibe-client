@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Space.css";
+import BookingModal from "./BookingModal";
+import { createPortal } from "react-dom";
 
 function Space({ selectedSpace, onSelectedSpace }) {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const { image, name, location, status, description, price } = selectedSpace;
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
   return (
     <div className="space-item">
       <button onClick={() => onSelectedSpace(null)} className="close-space-btn">
@@ -37,17 +45,29 @@ function Space({ selectedSpace, onSelectedSpace }) {
           <p className="space-item-description">
             <span>Description:</span> {description}
           </p>
-          <p className="space-cost">Ksh {price}</p>
+          <p className="space-cost">Charges: Ksh {price} per hour </p>
 
           <div className="space-reservation">
             <button className={status ? "space-booked" : "space-available"}>
-              {status ? "booked" : "available"}
+              {status ? "Occupied" : "available"}
             </button>
             <button
+              //   to="booking"
               className={status ? "space-Not-Available" : "space-book-now"}
+              disabled={status}
+              onClick={() => setModalOpen(true)}
             >
               {status ? "Not Available" : "Book Now"}
             </button>
+            {modalOpen &&
+              createPortal(
+                <BookingModal
+                  onClose={handleCloseModal}
+                  onCancel={handleCloseModal}
+                  onSubmit-={handleCloseModal}
+                />,
+                document.body
+              )}
           </div>
         </div>
         <div className="space-amenities">
