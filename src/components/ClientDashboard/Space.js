@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./Space.css";
 import BookingModal from "./BookingModal";
 import { createPortal } from "react-dom";
+import Notification from "./Notification";
 
 function Space({ selectedSpace, onSelectedSpace }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   const { id, image, name, location, status, description, price } =
     selectedSpace;
@@ -68,6 +70,8 @@ function Space({ selectedSpace, onSelectedSpace }) {
                   onSubmit-={handleCloseModal}
                   spaceId={id}
                   spaceAmount={price}
+                  setNotification={setNotification}
+                  updateSelectedSpace={onSelectedSpace}
                 />,
                 document.body
               )}
@@ -176,6 +180,13 @@ function Space({ selectedSpace, onSelectedSpace }) {
             </div>
           </ul>
         </div>
+
+        {notification && (
+          <Notification
+            message={notification}
+            onClose={() => setNotification(null)}
+          />
+        )}
       </div>
     </div>
   );
