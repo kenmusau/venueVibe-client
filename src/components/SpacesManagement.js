@@ -10,7 +10,7 @@ function SpacesManagement({newSpace}) {
         .then(resp => resp.json())
         .then(cont => setDatas(cont))
         
-    },[])
+    },[newSpace])
     console.log(newSpace)
     console.log(datas)
     
