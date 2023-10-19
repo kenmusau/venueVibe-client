@@ -606,3 +606,20 @@
 
     
   }
+
+
+  /* Profile */
+
+
+  .profile{
+    display: flex;
+  }
+
+  .profile-display{
+    background-color: #767575;
+    width: 80%;
+  }
+  .profile-display img{
+    width: 100%;
+    height:45%
+  }
