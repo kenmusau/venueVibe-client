@@ -2,9 +2,12 @@ import React, { useContext, useState } from "react";
 import "./BookingModal.css";
 import { ClientContext } from "../../context/ClientContext";
 import { baseUrl } from "../../utils";
+import Notification from "./Notification";
+import Swal from "sweetalert2";
 
 function BookingModal({ onClose, onCancel, spaceId, spaceAmount }) {
   const { client } = useContext(ClientContext);
+  const [notification, setNotification] = useState(null);
 
   const [bookingInfo, setBookingInfo] = useState({
     check_in: "",
@@ -68,9 +71,14 @@ function BookingModal({ onClose, onCancel, spaceId, spaceAmount }) {
     })
       .then((response) => response.json())
       .then((data) => {
+        setNotification("Booking successfully submitted!");
+        setTimeout(() => {
+          setNotification(null);
+        }, 3000);
         // Handle the response from the server
         console.log("Booking created:", data);
-        // onClose(); // Close the modal after successful booking
+        Swal.fire("Submission successful!");
+        onClose(); // Close the modal after successful booking
       })
       .catch((errors) => {
         // setErrors(error);
@@ -114,22 +122,28 @@ function BookingModal({ onClose, onCancel, spaceId, spaceAmount }) {
             onChange={handleChange}
             min={minDate()}
           />
-          <p>
-            Total Amount: Ksh{" "}
-            {isNaN(
-              calculateTotalAmount(
-                spaceAmount,
-                bookingInfo.check_in,
-                bookingInfo.check_out
-              )
-            )
-              ? 0
-              : calculateTotalAmount(
+          {!checkInAfterCheckout ? (
+            <p className="booking-amount-status">
+              <span>Total Amount:</span> Ksh{" "}
+              {isNaN(
+                calculateTotalAmount(
                   spaceAmount,
                   bookingInfo.check_in,
                   bookingInfo.check_out
-                )}
-          </p>
+                )
+              )
+                ? 0
+                : calculateTotalAmount(
+                    spaceAmount,
+                    bookingInfo.check_in,
+                    bookingInfo.check_out
+                  )}
+            </p>
+          ) : (
+            <p className="booking-dates-warning">
+              Checkin date comes before checkout date.
+            </p>
+          )}
         </div>
         <div className="booking-modal-footer">
           <button
@@ -148,6 +162,13 @@ function BookingModal({ onClose, onCancel, spaceId, spaceAmount }) {
           </button>
         </div>
       </div>
+
+      {notification && (
+        <Notification
+          message={notification}
+          onClose={() => setNotification(null)}
+        />
+      )}
     </div>
   );
 }
