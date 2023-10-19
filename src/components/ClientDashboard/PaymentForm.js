@@ -4,7 +4,13 @@ import { baseUrl } from "../../utils";
 import axios from "axios";
 import { ScaleLoader } from "react-spinners";
 
-function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
+function PaymentForm({
+  totalAmount,
+  onClose,
+  bookingData,
+  setNotification,
+  updateSpaceStatus,
+}) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -33,6 +39,7 @@ function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
         }
       )
       .then((response) => {
+        updateSpaceStatus();
         setIsLoading(false);
         setNotification("Payment successfully!");
         setTimeout(() => {
