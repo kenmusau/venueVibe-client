@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { response } from 'express';
+// import { response } from 'express';
 
 const schema = z.object({
     email: z.string().email(),
@@ -26,7 +26,7 @@ function Login({onSave}) {
         })
         .then(response =>{
             onSave(formValues)
-            console.log(formVal)
+            console.log(formValues)
         })
         }
 
@@ -39,7 +39,6 @@ function Login({onSave}) {
         })
         .then(response =>{
             onSave(formValues)
-            console.log
         })
         }
 

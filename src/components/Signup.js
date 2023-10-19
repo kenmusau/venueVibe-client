@@ -3,31 +3,41 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 
-function Signup({ onSave }) {
+const schema = z.object({
+    first_name: z.string(),
+    last_name: z.string(),
+    email: z.string().email(),
+    username: z.string(),
+    profile_picture: z.string().url(),
+    password: z.string()
+})
+function Signup({ setUser }) {
 
-    const { register, handleSubmit, formState } = useForm()
-
-    const schema = z.object({
-        first_name: z.string(),
-        last_name: z.string(),
-        email: z.email().reqiured(),
-        username: z.string(),
-        profile_picture: z.url(),
-        password: z.string()
-    })
-
+    const { register, handleSubmit, formState } = useForm({ resolver: zodResolver(schema)})
     const { errors } = formState
 
     function handleFormSubmit(formValues){
-        // fetch("",{
-        //     method: "POST",
-        //     body: JSON.stringify(inputs),
-        //     headers:{
-        //         "Content-Type": "application/json"
-        //     }, 
-        // })
-        // .then(resp => resp.json)
-        onSave(formValues)
+        fetch("https://venuevibe-server.onrender.com/clientSignup",{
+            method: "POST",
+            body: JSON.stringify(formValues),
+            headers:{
+                "Content-Type": "application/json"
+            }, 
+        })
+        .then(response => {
+            // if (!response.ok){
+            //     throw new Error("Login failed")
+            // }
+            return response.json()
+        })
+        .then(response =>{
+            console.log(formValues)
+        })
+        .catch((error) => {
+            // Handle the error here
+            console.error("Fetch error:", error);
+          });
+        // console.log(formValues)
     }
 
   return (
@@ -84,7 +94,7 @@ function Signup({ onSave }) {
                                 <label className='password'>Password</label> 
                                 <small style={{color: "red"}}>{errors.password?.message}</small>
                             </div>
-                        <button className='signup-button'>Create Account</button>
+                        <button className='signup-button' type='submit'>Create Account</button>
                     </div>
                 </form>
                 <p className='have-account'>Already have an account? <a href="/login">login</a></p>

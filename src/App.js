@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useFetcher } from 'react-router-dom';
 import './App.css'
 import Login from './components/Login';
 import { useEffect, useState } from 'react';
@@ -9,6 +9,10 @@ function App() {
 
   const [user, setUser] = useState()
   const [admin, setAdmin] = useState()
+
+  // useEffect(()=>{
+  //   console.log(user)
+  // },[user])
   return (
     <div className="App">
       <Routes>
