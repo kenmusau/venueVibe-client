@@ -16,7 +16,7 @@ function Login({onSave}) {
     const {errors} = formState
 
     function handleFormSubmit(formValues){
-        if (formValues.first_name == ""){
+        if (formValues.first_name == "Kevin"){
         fetch("https://venuevibe-server.onrender.com/adminlogin")
         .then(response =>{
             if (!response.ok){
@@ -24,21 +24,23 @@ function Login({onSave}) {
             }
             return response.json()
         })
-        .then(response =>{
+        .then(data =>{
             onSave(formValues)
-            console.log(formValues)
+            console.log(data)
         })
         }
 
-        fetch("https://venuevibe-server.onrender.com/clientLogin")
+        fetch("https://venuevibe-server.onrender.com/login")
+        .then(console.log(formValues))
         .then(response => {
             if (!response.ok){
                 throw new Error("Login failed")
             }
             return response.json()
         })
-        .then(response =>{
-            onSave(formValues)
+        .then(data =>{
+            onSave(data)
+            console.log(data)
         })
         }
 
@@ -52,11 +54,11 @@ function Login({onSave}) {
             <h2>LOGIN</h2>
             <form className='login-inputs' onSubmit={handleSubmit(handleFormSubmit)}>
                 <div className='input-divs'>
-                    <input className='first-input' {...register("email")}   />
+                    <input className='first-input' placeholder='email' {...register("email")}   />
                     <p style={{color: "red"}}>{errors.email?.message}</p>
                 </div>
                 <div className='input-divs'>
-                    <input name="password" {...register("password")} autocomplete="off"/>
+                    <input name="password" placeholder='password' {...register("password")} autocomplete="off"/>
                     <p>{errors.password?.message}</p>
                 </div>
                 <button className='login-button' type='submit'>LOGIN</button>
