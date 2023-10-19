@@ -30,6 +30,8 @@ function BookingModal({
     return today;
   };
 
+  // Update selected space status to Ocupied.
+
   const updateSpaceStatus = () => {
     setIsLoading(true);
     fetch(`${baseUrl}/spaces/${spaceId}`, {

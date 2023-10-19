@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./PaymentForm.css";
 import { baseUrl } from "../../utils";
 import axios from "axios";
+import { ScaleLoader } from "react-spinners";
 
 function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState([]);
   //   console.log(bookingData);
   const { id } = bookingData;
@@ -13,6 +15,7 @@ function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
 
   const handlePaymentSubmit = () => {
     // Simulate payment processing (replace with actual payment integration)
+    setIsLoading(true);
     axios
       .post(
         `${baseUrl}/payments`,
@@ -30,6 +33,7 @@ function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
         }
       )
       .then((response) => {
+        setIsLoading(false);
         setNotification("Payment successfully!");
         setTimeout(() => {
           setNotification(null);
@@ -38,6 +42,7 @@ function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
         onClose();
       })
       .catch((error) => {
+        setIsLoading(true);
         console.error("Error creating booking:");
         setErrors(error.response.data.errors);
       });
@@ -60,7 +65,7 @@ function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
         </p>
       ))}
       <button className="payment-btn btn-submit" onClick={handlePaymentSubmit}>
-        Pay
+        {isLoading ? <ScaleLoader height={8} color="#fff" /> : "Pay"}
       </button>
     </div>
   );
