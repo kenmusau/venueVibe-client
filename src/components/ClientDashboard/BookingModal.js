@@ -183,7 +183,7 @@ function BookingModal({
                       bookingInfo.check_out
                     )}
               </p>
-              <p>Submit to complete payment</p>
+              <p>Continue to payment!</p>
             </div>
           ) : (
             <p className="booking-dates-warning">
@@ -214,7 +214,11 @@ function BookingModal({
                 onClick={handleBookingSubmit}
                 disabled={isSubmitDisabled || checkInAfterCheckout}
               >
-                {isLoading ? <ScaleLoader height={8} color="#fff" /> : "Submit"}
+                {isLoading ? (
+                  <ScaleLoader height={8} color="#fff" />
+                ) : (
+                  "Continue"
+                )}
               </button>
               <button
                 className="booking-btn btn-cancel"

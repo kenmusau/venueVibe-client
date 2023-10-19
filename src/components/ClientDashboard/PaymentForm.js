@@ -42,7 +42,7 @@ function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
         onClose();
       })
       .catch((error) => {
-        setIsLoading(true);
+        setIsLoading(false);
         console.error("Error creating booking:");
         setErrors(error.response.data.errors);
       });
