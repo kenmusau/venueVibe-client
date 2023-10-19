@@ -18,6 +18,7 @@ function BookingModal({
   const { client } = useContext(ClientContext);
   const [isPaymentStep, setIsPaymentStep] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [bookingData, setBookingData] = useState(null);
 
   const [bookingInfo, setBookingInfo] = useState({
     check_in: "",
@@ -107,6 +108,7 @@ function BookingModal({
         }, 3000);
         // Handle the response from the server
         console.log("Booking created:", data);
+        setBookingData(data);
         setIsPaymentStep(true);
         updateSpaceStatus();
         // Swal.fire("Submission successful!");
@@ -117,6 +119,7 @@ function BookingModal({
         console.error("Error creating booking:", errors.errors.errors);
       });
   };
+  console.log(bookingData);
 
   const isSubmitDisabled = !bookingInfo.check_in || !bookingInfo.check_out;
   const checkInAfterCheckout =
@@ -195,6 +198,7 @@ function BookingModal({
                 bookingInfo.check_out
               )}
               onClose={onClose}
+              bookingData={bookingData}
             />
           ) : (
             <>

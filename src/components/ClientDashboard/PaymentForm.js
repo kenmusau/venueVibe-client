@@ -1,11 +1,35 @@
 import React from "react";
 import "./PaymentForm.css";
+import { baseUrl } from "../../utils";
 
-function PaymentForm({ totalAmount, onClose }) {
+function PaymentForm({ totalAmount, onClose, bookingData }) {
+  console.log(bookingData);
+  const { id } = bookingData;
+
+  const paymentDate = new Date().toISOString();
   const handlePaymentSubmit = () => {
     // Simulate payment processing (replace with actual payment integration)
-    console.log("Payment processed successfully!");
-    onClose(); // Close the modal after successful payment
+    fetch(`${baseUrl}/payments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: totalAmount,
+        status: true,
+        booking_id: id,
+        payment_date: paymentDate,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        onClose();
+      })
+      .catch((errors) => {
+        // setErrors(error);
+        console.error("Error creating booking:", errors.errors.errors);
+      });
   };
 
   return (
