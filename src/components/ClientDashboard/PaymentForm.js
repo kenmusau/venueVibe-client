@@ -3,13 +3,7 @@ import "./PaymentForm.css";
 import { baseUrl } from "../../utils";
 import axios from "axios";
 
-function PaymentForm({
-  totalAmount,
-  onClose,
-  bookingData,
-  onUpdateSpaceStatus,
-  setNotification,
-}) {
+function PaymentForm({ totalAmount, onClose, bookingData, setNotification }) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [errors, setErrors] = useState([]);
   //   console.log(bookingData);
@@ -36,13 +30,12 @@ function PaymentForm({
         }
       )
       .then((response) => {
-        onUpdateSpaceStatus();
-        console.log(response.data);
-        onClose();
-        setNotification("Payment successfully Received!");
+        setNotification("Payment successfully!");
         setTimeout(() => {
           setNotification(null);
         }, 3000);
+        console.log(response.data);
+        onClose();
       })
       .catch((error) => {
         console.error("Error creating booking:");

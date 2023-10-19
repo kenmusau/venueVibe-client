@@ -199,6 +199,7 @@ function BookingModal({
               )}
               onClose={onClose}
               bookingData={bookingData}
+              setNotification={setNotification}
             />
           ) : (
             <>
