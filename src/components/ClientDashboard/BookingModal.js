@@ -104,7 +104,7 @@ function BookingModal({
     })
       .then((response) => response.json())
       .then((data) => {
-        setNotification("Booking successfully submitted!");
+        setNotification("Booking Process Initiated!");
         setTimeout(() => {
           setNotification(null);
         }, 3000);
@@ -138,10 +138,7 @@ function BookingModal({
     >
       <div className="booking-modal">
         <div className="booking-modal-header">
-          <p
-            className="booking-modal-close"
-            onClick={isPaymentStep ? null : () => onClose()}
-          >
+          <p className="booking-modal-close" onClick={() => onClose()}>
             &times;
           </p>
         </div>
@@ -183,7 +180,7 @@ function BookingModal({
                       bookingInfo.check_out
                     )}
               </p>
-              <p>Continue to payment!</p>
+              {!isPaymentStep && <p>Continue to payment!</p>}
             </div>
           ) : (
             <p className="booking-dates-warning">
