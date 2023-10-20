@@ -21,7 +21,7 @@ function PaymentForm({
 
   // const paymentDate = new Date().toISOString();
 
-  const handleConfirmPayment = () => {
+  const handleCheckOutToPayment = () => {
     // Simulate payment processing (replace with actual payment integration)
     setIsLoading(true);
     axios
@@ -62,28 +62,62 @@ function PaymentForm({
       });
   };
 
-  function handlePayment() {
-    updateSpaceStatus();
-    setIsLoading(false);
-    setNotification("Payment successful!");
-    setTimeout(() => {
-      setNotification(null);
-    }, 3000);
-
-    onClose();
+  function handleConfirmPayment() {
+    handleSuccessPayment();
   }
 
   console.log(errors);
 
-  // Confirm if payment was done
+  function handleSuccessPayment() {
+    setIsLoading(true);
+    axios
+      .post(
+        `${baseUrl}/stkquery`,
+        {
+          checkoutRequestID,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        setIsLoading(false);
+        const [result, responseData] = response.data; // Destructure the result and data
+        if (result === "success") {
+          // Handle success
+          updateSpaceStatus();
+          setIsLoading(false);
+          setNotification("Payment successful!");
+          setTimeout(() => {
+            setNotification(null);
+          }, 3000);
+          console.log(response);
 
-  // function confirmPayment() {}
+          onClose();
+        } else if (result === "error") {
+          // Handle error
+          const { errorMessage } = responseData;
+          console.log(errorMessage);
+          setErrors(errorMessage);
+        }
+      });
+  }
 
   if (checkoutRequestID)
     return (
       <div className="payment-form">
-        <button className="payment-btn btn-submit" onClick={handlePayment}>
-          Confirm Payment
+        {errors && <p className="payment-errors">{errors}</p>}
+        <button
+          className="payment-btn btn-submit"
+          onClick={handleConfirmPayment}
+        >
+          {isLoading ? (
+            <ScaleLoader height={8} color="#fff" />
+          ) : (
+            "Confirm Payment"
+          )}
         </button>
       </div>
     );
@@ -109,7 +143,10 @@ function PaymentForm({
           Phone Number should not be empty and should start with 254
         </p>
       )}
-      <button className="payment-btn btn-submit" onClick={handleConfirmPayment}>
+      <button
+        className="payment-btn btn-submit"
+        onClick={handleCheckOutToPayment}
+      >
         {isLoading ? <ScaleLoader height={8} color="#fff" /> : "Pay"}
       </button>
     </div>
