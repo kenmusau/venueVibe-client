@@ -143,7 +143,7 @@ function BookingModal({
           </p>
         </div>
         <div className="booking-modal-content">
-          <h1>Booking space</h1>
+          <h1>Book space</h1>
           <label>Check-in:</label>
           <input
             type="date"
