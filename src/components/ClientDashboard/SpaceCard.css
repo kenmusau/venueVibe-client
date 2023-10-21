@@ -3,7 +3,7 @@
   /* outline: 2px solid red; */
   cursor: pointer;
   height: 350px;
-  width: 300px;
+  /* width: 300px; */
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 20px 20px 0px rgba(0, 0, 0, 0.07);
@@ -16,7 +16,7 @@
 
 .space-card img {
   height: 190px;
-  width: 300px;
+  width: 100%;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   transition: transform 0.5s, filter 1.5s ease-in-out;
@@ -60,4 +60,19 @@
 .space-card-price {
   color: #868e96;
   font-size: 14px;
+}
+
+@media screen and (max-width: 620px) {
+  .space-card-description {
+    font-size: 10px;
+  }
+  .space-card-content {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .space-card-name {
+    font-size: 15px;
+  }
 }

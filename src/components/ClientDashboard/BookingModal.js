@@ -112,9 +112,6 @@ function BookingModal({
         console.log("Booking created:", data);
         setBookingData(data);
         setIsPaymentStep(true);
-        // updateSpaceStatus();
-        // Swal.fire("Submission successful!");
-        // onClose(); // Close the modal after successful booking
       })
       .catch((errors) => {
         // setErrors(error);

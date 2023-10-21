@@ -1,6 +1,5 @@
 .client-DashBoard {
   max-height: 100vh;
-  /* background-color: red; */
   padding: 25px 100px 0 10px;
   display: flex;
   flex-direction: column;
@@ -95,4 +94,47 @@
   /* background-color: orange; */
   height: 60%;
   color: #495057;
+}
+
+@media screen and (max-width: 1000px) {
+  .client-DashBoard {
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .client-DashBoard {
+    padding: 10px;
+  }
+  .client-intro {
+    /* flex-direction: column-reverse; */
+    /* gap: 20px; */
+    font-size: 13px;
+  }
+  .client-intro {
+    font-size: 13px;
+  }
+  .client-intro-profile {
+    justify-content: space-between;
+  }
+  .client-intro-greeting h1 {
+    font-size: 18px;
+  }
+  .client-profile-pic {
+    width: 70px;
+    height: 70px;
+  }
+  .client-current-time {
+    font-size: 14px;
+  }
+  .client-update-profile-bnt {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .client-intro {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
 }
