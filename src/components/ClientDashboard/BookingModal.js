@@ -96,7 +96,7 @@ function BookingModal({
       },
       body: JSON.stringify({
         ...bookingInfo,
-        status: true,
+        status: false,
         space_id: spaceId,
         client_id: client.data.id,
         amount: totalAmount,

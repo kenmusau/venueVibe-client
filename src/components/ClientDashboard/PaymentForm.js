@@ -21,6 +21,24 @@ function PaymentForm({
 
   // const paymentDate = new Date().toISOString();
 
+  function handleUpdateBookingStatus() {
+    axios
+      .patch(
+        `${baseUrl}/bookings/${id}`,
+        {
+          status: true,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
   const handleCheckOutToPayment = () => {
     // Simulate payment processing (replace with actual payment integration)
     setIsLoading(true);
@@ -88,6 +106,7 @@ function PaymentForm({
         if (result === "success") {
           // Handle success
           updateSpaceStatus();
+          handleUpdateBookingStatus();
           setIsLoading(false);
           setNotification("Payment successful!");
           setTimeout(() => {
