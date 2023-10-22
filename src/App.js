@@ -17,7 +17,7 @@ function App() {
       {/* <h2>Venue Vibe Loading ......</h2>
       <a href="/home">dash</a> */}
       <Routes>
-        <Route path="/dashboard" element={<AdminDashboard/>}/>
+        <Route path="/dashboard" element={<AdminDashboard />}/>
         <Route path="/add-user"  element={<AddUser setNewUser={setNewUser}/>}/>
         <Route path="/spaces" element={<SpacesManagement newSpace={newSpace}/>}/>
         <Route path="/add-space" element={<AddSpace setNewSpace={setNewSpace}/>}/>

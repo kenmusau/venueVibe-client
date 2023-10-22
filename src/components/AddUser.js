@@ -1,18 +1,28 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
 // import { error } from 'console'
 
+const schema = yup.object({
+    first_name: yup.string().required(),
+    last_name: yup.string().required(),
+    profile_picture: yup.string().required(),
+    email: yup.string().email().required()
 
+
+})
 function AddUser({setNewUser}) {
 
     const navigate = useNavigate()
     const handleNavigate = () => {
         navigate("/users")
     }
-
+    
     const handleFormSubmit = (formValues) => {
-
+        
+        
         fetch("https://venuevibe-server.onrender.com/clients",{
             method: "POST",
             headers: {
@@ -26,10 +36,13 @@ function AddUser({setNewUser}) {
             }
             return response.json()
         })
-        .then(data => setNewUser(data))
+        .then(data => {
+            setNewUser(data)
+            navigate("/users")
+        })
         // console.log(formValues)
     }
-    const { register, handleSubmit} = useForm()
+    const { register, handleSubmit, formState: {errors},} = useForm({resolver: yupResolver(schema),})
   return (
     <div className='admin'>
         <div className='first-add-user'>
@@ -73,20 +86,20 @@ function AddUser({setNewUser}) {
             <h3>Submit details to save user </h3>
             <form className='add-user-form' onSubmit={handleSubmit(handleFormSubmit)}>
                 <label>First name:    
-                <input {...register("first_name")}/>
+                <input {...register("first_name",{ required: true, minLength: 5 })}/>
                 </label>
                 <label>Last Name:
                     <input {...register("last_name")}/>
                 </label>
                 <label>Avatar:
-                    <input type='file' {...register("profile_picture")}/>
+                    <input {...register("profile_picture")}/>
                 </label>
                 <label>Email:
                     <input {...register("email")}/>
                 </label>
-                <label>Spaces Name:
+                {/* <label>Spaces Name:
                     <input {...register("first_name")}/>
-                </label>
+                </label> */}
                 <button type='submit'>Submit</button>
             </form>
         </div>

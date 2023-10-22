@@ -7,12 +7,10 @@ function UserManagement({newUser}) {
   const [users, setUsers] = useState([])
 
   useEffect(()=>{
-    // fetch("https://venuevibe-server.onrender.com/clients")
-    // .then(resp => resp.json())
-    // .then(cont => 
-    setUsers(user)
-    setUsers([...user, newUser])
-},[,newUser])
+    fetch("https://venuevibe-server.onrender.com/clients")
+    .then(resp => resp.json())
+    .then(cont => setUsers(cont))
+},[newUser])
 
 
   const user = [
@@ -90,7 +88,7 @@ const handleNavigate = () =>{
                     <div className='user-card'>
                         <img src={user.image} alt=""/>
                         <div className='details'>
-                            <p>{user.name}</p>
+                            <p>{user.first_name} {user.last_name}</p>
                             <p id='email'>{user.email}</p>
                         </div>
                     </div>
