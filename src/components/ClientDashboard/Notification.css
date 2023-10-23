@@ -1,0 +1,27 @@
+.notification {
+  background-color: #4caf50; /* Green background color */
+  color: white; /* White text color */
+  padding: 15px; /* Padding around the message */
+  position: fixed;
+  bottom: 20px; /* Position at the bottom of the screen */
+  right: 20px; /* Position at the right side of the screen */
+  z-index: 1; /* Ensure it appears above other elements */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification p {
+  margin: 0; /* Remove default margin for the text */
+}
+
+.notification button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+}
