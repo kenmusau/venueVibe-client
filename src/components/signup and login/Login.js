@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useNavigate } from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader";
+import { PulseLoader } from 'react-spinners';
 // import { response } from 'express';
 
 const schema = z.object({
@@ -13,6 +15,7 @@ const schema = z.object({
 function Login({userRef}) {
 
     const navigate = useNavigate()
+    const [showLoader, setShowLoader] = useState(false)
     const { register, formState, handleSubmit} = useForm({ resolver: zodResolver(schema)})
     const {errors} = formState
 
@@ -30,6 +33,9 @@ function Login({userRef}) {
             password: formValues.password
         }
 
+        setShowLoader(true)
+           
+
         if (formValues.username === "admin1"){
         fetch("https://venuevibe-server.onrender.com/adminlogin",{
             method:"POST",
@@ -39,7 +45,6 @@ function Login({userRef}) {
             body: JSON.stringify(formData)
         })
         .then(response =>{
-            
             return response.json()
         })
         .then(data =>{
@@ -47,8 +52,7 @@ function Login({userRef}) {
             userRef.current = data
             navigate("/dashboard")
         })
-        }
-
+        }else{
         fetch("https://venuevibe-server.onrender.com/login",{
             method:"POST",
             headers:{
@@ -72,9 +76,26 @@ function Login({userRef}) {
           });
         }
 
+    }
+    useEffect(()=>{
+        setTimeout(()=>{
+            setShowLoader(false)
+        },4000)
+    },[showLoader, navigate])
+
   return (
     <div className='login'>
-        <div className='wrapper'>
+        {showLoader && (
+        <div className="loader-overlay">
+          <PulseLoader
+            color={'#262d2d'}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
+        <div className={`wrapper ${showLoader ? 'blur' : ''}`}>
             <div className='venuevibe'>
                 <h1><span>Venue</span>vibe</h1>
             </div>
