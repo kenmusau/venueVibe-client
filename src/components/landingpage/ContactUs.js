@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import './ContactUs.css'; 
 import images3 from '../../images/img3.jpg'; 
 import SocialIcons from './SocialIcons';
+import AdditionalContent from './AdditionalContent';
 
 function ContactUs() {
   return (
@@ -16,6 +17,7 @@ function ContactUs() {
           <p className="description" style={{ color: 'rgba(0, 0, 0, 0.60)', fontSize: '1.5rem', fontFamily: 'Inter', fontWeight: '500', lineHeight: '2rem', wordWrap: 'break-word' }}>
             Feel free to reach out to us for any inquiries or feedback. We are here to assist you.
           </p>
+          < AdditionalContent />
           < SocialIcons />
         </div>
         <div className="image-container">
