@@ -1,47 +1,75 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { useNavigate } from 'react-router-dom';
 // import { response } from 'express';
 
 const schema = z.object({
-    email: z.string().email(),
+    username: z.string(),
     password: z.string()
 });
 
-function Login({onSave}) {
+function Login({userRef}) {
 
+    const navigate = useNavigate()
     const { register, formState, handleSubmit} = useForm({ resolver: zodResolver(schema)})
-
     const {errors} = formState
 
+    // const [user, setUser] = useState([])
+    // const userRef = useRef(null)
+
+
+    useEffect(()=>{
+        console.log(userRef)
+    },[userRef])
     function handleFormSubmit(formValues){
-        if (formValues.first_name == "Kevin"){
-        fetch("https://venuevibe-server.onrender.com/adminlogin")
+
+        const formData = {
+            username: formValues.username,
+            password: formValues.password
+        }
+
+        if (formValues.username === "admin1"){
+        fetch("https://venuevibe-server.onrender.com/adminlogin",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(formData)
+        })
         .then(response =>{
-            if (!response.ok){
-                throw new Error("Login failed")
-            }
+            
             return response.json()
         })
         .then(data =>{
-            onSave(formValues)
-            console.log(data)
+            localStorage.setItem("person", JSON.stringify(data))
+            userRef.current = data
+            navigate("/dashboard")
         })
         }
 
-        fetch("https://venuevibe-server.onrender.com/login")
-        .then(console.log(formValues))
-        .then(response => {
+        fetch("https://venuevibe-server.onrender.com/login",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response =>  {
             if (!response.ok){
-                throw new Error("Login failed")
+                throw new Error("What is wrong with your code")
             }
             return response.json()
         })
         .then(data =>{
-            onSave(data)
-            console.log(data)
+            userRef.current = data
+            navigate("/dashboard")
         })
+        .catch((error) => {
+            // Handle the error here
+            console.error("Fetch error:", error);
+          });
         }
 
   return (
@@ -54,8 +82,8 @@ function Login({onSave}) {
             <h2>LOGIN</h2>
             <form className='login-inputs' onSubmit={handleSubmit(handleFormSubmit)}>
                 <div className='input-divs'>
-                    <input className='first-input' placeholder='email' {...register("email")}   />
-                    <p style={{color: "red"}}>{errors.email?.message}</p>
+                    <input className='first-input' placeholder='username' {...register("username")}   />
+                    <p style={{color: "red"}}>{errors.username?.message}</p>
                 </div>
                 <div className='input-divs'>
                     <input name="password" placeholder='password' {...register("password")} autocomplete="off"/>

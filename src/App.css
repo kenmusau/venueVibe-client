@@ -69,20 +69,27 @@
       height: 560px;
     }
     
-    .first{
-        display: flex;
-        flex-direction: column;
-        gap: 3em;
-        /* border: 1px solid black; */
-        width: 20%;
-        height: 100%;
-        background-color: #262d2d;
-    }
+.first{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    /* border: 1px solid black; */
+    width: 20%;
+    height: 100%;
+    background-color: #262d2d;
+}
 
     .admin label{
       color: #D9D9D9;
     }
 
+    .user-manage label{
+      color: #D9D9D9;
+    }
+    
+    .spacesManage label{
+      color: #D9D9D9;
+    }
     .profile .first{
         display: flex;
         flex-direction: column;
@@ -209,13 +216,13 @@
   }
   
   .dashboard-icon{
-    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
     display: flex;
     align-items: center;
     gap: 1em;
+    margin-left: -100px;
 }
 
 
@@ -802,7 +809,7 @@ svg{
 .left{
   width: 60%;
   height: 100%;
-  background-color: #D9D9D9;
+  background-color: #323434;
 }
 
 .right{
@@ -830,24 +837,26 @@ svg{
 }
 
 .picture-div{
-  margin-top: 20px;
-  border: 1px solid black;
   width: 310px;
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .picture-div input{
   margin-top: 20px;
+  width: 310px;
+  height: 35px;
+  border-radius: 5px;
 }
 
 .username-input input{
   margin-top: 20px;
   width: 310px;
   height: 35px;
-  border: 1px solid #767575;
   border-radius: 5px;
+  border: 1px solid #767575;
   margin-left: 80px;
 }
+
 
 .email-div{
   margin: 30px;
@@ -896,6 +905,18 @@ svg{
   border-radius: 5px;
   background-color: #FF922B;
   color: aliceblue;
+  cursor: pointer;
+}
+
+.signup-button:hover{
+  background-color: #fd8b08;
+  border: 2px solid #262d2d; /* Change the background color on hover */
+  transform: translateY(-2px);
+}
+
+.signup-button:active {
+  background-color: #FF7F00; /* Change the background color when clicked */
+  transform: translateY(0); /* Reset the movement on click */
 }
 
 .have-account{
@@ -968,7 +989,7 @@ svg{
 .firstname{
   position: absolute;
   left: 535px;
-  top: 142px;
+  top: 136px;
   z-index: 1;
   background-color: white;
   padding-left: 5px;
@@ -978,7 +999,7 @@ svg{
 
 .lastname{
   position: absolute;
-  top: 142px;
+  top: 136px;
   left: 930px;
   z-index: 1;
   background-color: white;
@@ -990,7 +1011,7 @@ svg{
 .email{
   position: absolute;
   left: 535px;
-  top: 270px;
+  top: 267px;
   z-index: 1;
   background-color: white;
   padding-left: 5px;
@@ -1012,7 +1033,7 @@ svg{
 .username{
   position: absolute;
   left: 535px;
-  top: 200px;
+  top: 197px;
   z-index: 1;
   background-color: white;  
   padding-left: 5px;
@@ -1023,7 +1044,7 @@ svg{
 .profile-picture{
   position: absolute;
   left: 930px;
-  top: 200px;
+  top: 195px;
   z-index: 1;
   background-color: white;  
   padding-left: 5px;
@@ -1032,3 +1053,253 @@ svg{
 }
  
 
+
+/* HOMEPAGE css */
+
+
+
+
+
+.home{
+  /* background-color: blueviolet; */
+  height: 100vh;
+}
+.nav{
+  display: flex;
+
+}
+
+.nav-div{
+  margin: 10px 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: flex-end; */
+  background-color: #D9D9D9;
+}
+
+.nav-div a{
+  margin-left: 100px;
+  font-weight: 500;
+}
+
+.home-content{
+  display: flex;
+  height: 70%;
+  margin-top: 30px;
+  margin-left: 80px;
+  margin-right: 30px;
+  /* margin: 30px 60px; */
+  /* justify-content: center; */
+}
+
+.left-home{
+  width: 50%;
+  height: 90%;
+}
+
+.right-home{
+  height: 100%;
+  width:50%;
+}
+
+.right-home img{
+  width: 100%;
+  height: 110%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.left-home h2{
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.left-home p{
+  width: 400px;
+  font-size: 1.3rem;
+  color: #8b8484;
+}
+
+.heading{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.home-button-div{
+  margin-top: 20px;
+  margin-left: 20%;
+}
+
+.home-button-div button{
+  background-color: #FF5D22;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 850px) {
+  .home-content{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-div{
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+
+
+/* Adjust styles for screen widths 768px and below (typical tablets and mobiles) */
+@media (max-width: 768px) {
+  .signup {
+    overflow-x: hidden;
+    flex-direction: column; /* Stack components on small screens */
+    height: auto; /* Allow content to expand vertically */
+  }
+
+  .firstname{
+    top: 210px;
+    left: 100px;
+  }
+
+  .lastname{
+    	left: 100px;
+      top:270px;
+  }
+
+  .username{
+    left: 100px;
+    top:348px;
+  }
+
+  .profile-picture{
+    left: 100px;
+    top:428px;
+  }
+
+  .email{
+    left: 100px;
+    top:508px;
+  }
+
+  .password{
+    left: 100px;
+    top:585px;
+  }
+
+  .left,
+  .right {
+    width: 100%; /* Full width on small screens */
+  }
+
+  .right h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem; /* Smaller font size for better mobile readability */
+    margin-left: 10px;
+  }
+
+  .signup-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .names {
+    flex-direction: column; /* Stack first and last name fields */
+    align-items: center;
+  }
+
+  .names input {
+    margin: 10px 0;
+  }
+
+  .user-preference {
+    flex-direction: column; /* Stack username and profile picture fields */
+    align-items: center;
+  }
+
+  .picture-div,
+  .username-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Full width for input fields */
+    margin: 10px 0;
+  }
+
+  .picture-div input,
+  .username-input input {
+    width: 310px; /* Full width for input fields */
+  }
+
+  .username-input input{
+    margin-right: 77px;
+  }
+
+  .email-div input{
+    margin-left: 85px;
+    margin-top: 20px;
+  }
+
+  .first-input input{
+    margin-bottom: 60px;
+  }
+  .email-div,
+  .password-div {
+    margin: 10px 0; /* Add space between input fields */
+  }
+
+  .password-div input{
+    margin-top: 20px;
+  }
+
+  .email-div input,
+  .password-div input {
+    width: 310px; /* Full width for input fields */
+  }
+
+  .signup-button {
+    margin: 20px 0;
+    width: 200px; /* Add more space around the button */
+    margin-left: 150px;
+  }
+
+  .have-account {
+    margin: 10px 0; /* Add space below the "Already have an account" text */
+  }
+
+  .or {
+    flex-direction: column; /* Stack the "OR" section */
+    align-items: center;
+  }
+
+  .or hr {
+    width: 60%; /* Adjust the width of the horizontal lines */
+    margin: 10px 0;
+  }
+
+  .social-login {
+    flex-direction: column; /* Stack social login buttons */
+    align-items: center;
+  }
+
+  .google,
+  .facebook {
+    width: 100%; /* Full width for social login buttons */
+    margin: 10px 0;
+  }
+}

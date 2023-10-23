@@ -1,8 +1,49 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
-function AdminDashboard() {
+function AdminDashboard({userRef}) {
 
+    function handleLogout(){
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You will be logged out from the site!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#262d2d',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Logout!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                fetch("https://venuevibe-server.onrender.com/adminlogout",{
+                    method: "DELETE",
+                })
+                .then(response => {
+                    if (response.ok) {
+                        userRef.current = null;
+                    } else {
+                        console.error("Logout failed:", response.statusText);
+                    }
+                })
+                .catch(error => {
+                    // Handle network errors
+                    console.error("Logout error:", error);
+                });
+                Swal.fire(
+                    'Logged out!',
+                    'Your have been succesfully logged out.',
+                    'success'
+                    )
+                    setTimeout(()=>{
+                        navigate("/");
+                    },[1500])
+                }
+          })
+}
+
+useEffect(()=>{
+    console.log(userRef)
+})
   const navigate = useNavigate()
 
   const handleNavigate = () => {
@@ -17,7 +58,7 @@ function AdminDashboard() {
                   <a href='/dashboard' >
                       <div className='dashboard-icon'>
                         <svg fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="dashboard" class="icon glyph" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><rect x="2" y="2" width="9" height="11" rx="2"></rect><rect x="13" y="2" width="9" height="7" rx="2"></rect><rect x="2" y="15" width="9" height="7" rx="2"></rect><rect x="13" y="11" width="9" height="11" rx="2"></rect></g></svg>
-                          <img src='https://www.svgrepo.com/show/459911/dashboard.svg' />
+                          {/* <img src='https://www.svgrepo.com/show/459911/dashboard.svg' /> */}
                           <label>Dashboard</label>
                       </div>
                   </a>
@@ -33,23 +74,25 @@ function AdminDashboard() {
               <div>
                   <a href='/spaces'>
                       <div className='spaces-icon'>
-                      <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 44.93 44.929" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M44.373,20.481L26.194,2.302c-2.057-2.058-5.404-2.058-7.459,0L0.556,20.481c-0.741,0.741-0.741,1.942,0,2.683 c0.741,0.741,1.943,0.741,2.684,0L21.417,4.986c0.56-0.559,1.533-0.559,2.093,0l18.18,18.18c0.369,0.37,0.855,0.556,1.341,0.556 s0.972-0.187,1.342-0.556C45.114,22.424,45.114,21.222,44.373,20.481z"></path> <path d="M23.358,8.503c-0.491-0.491-1.29-0.491-1.781,0L6.24,23.848c-0.236,0.236-0.36,0.556-0.36,0.889v16.674 c0,1.508,1.204,2.76,2.71,2.76h27.749c1.507,0,2.743-1.252,2.743-2.76V24.738c0-0.333-0.14-0.652-0.375-0.889L23.358,8.503z M30.866,31.622c-0.113,0.113-5.629,5.604-7.662,7.625c-0.409,0.407-1.072,0.407-1.481,0c-2.032-2.021-7.548-7.511-7.661-7.625 c-2.325-2.324-2.325-6.094,0-8.418c2.319-2.317,6.076-2.323,8.401-0.017c2.326-2.307,6.083-2.302,8.401,0.017 C33.19,25.528,33.19,29.297,30.866,31.622z"></path> </g> </g> </g></svg>
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5 22.5H18.75C19.1478 22.5 19.5294 22.342 19.8107 22.0607C20.092 21.7794 20.25 21.3978 20.25 21V13.5" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.5 22.5H5.25C4.85218 22.5 4.47064 22.342 4.18934 22.0607C3.90804 21.7794 3.75 21.3978 3.75 21V13.5" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M0.75 12.129L10.939 1.939C11.0783 1.79961 11.2437 1.68904 11.4258 1.61359C11.6078 1.53815 11.8029 1.49932 12 1.49932C12.1971 1.49932 12.3922 1.53815 12.5742 1.61359C12.7563 1.68904 12.9217 1.79961 13.061 1.939L23.122 12" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 12C13.2426 12 14.25 10.9926 14.25 9.75C14.25 8.50736 13.2426 7.5 12 7.5C10.7574 7.5 9.75 8.50736 9.75 9.75C9.75 10.9926 10.7574 12 12 12Z" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 13.5C11.0054 13.5 10.0516 13.8951 9.34835 14.5983C8.64509 15.3016 8.25 16.2554 8.25 17.25V18H9.75L10.5 22.5H13.5L14.25 18H15.75V17.25C15.75 16.2554 15.3549 15.3016 14.6517 14.5983C13.9484 13.8951 12.9946 13.5 12 13.5Z" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                           <label>Spaces</label>
                       </div>
                   </a>
               </div>
           </div>
           <div>
-            <div className='logout-icon'>
+            <div className='logout-icon' onClick={handleLogout}>
                 <img src="https://static.thenounproject.com/png/1150920-200.png"/>
                 <label>logout</label>
             </div>
           </div>
       </div>
       {/* CENTER */}
+    {/* {userRef.map(user =>{
+    return( */}
       <div className='center'>
             <div className='welcome'>
-                <h3>Welcome back, Warren Wade</h3>
+                <h3>Welcome back, {userRef.current.first_name} {userRef.current.last_name}</h3>
                 <p>Today is Mon, 20th Sept 2023</p>
             </div>
             <div className='stats'>
@@ -87,6 +130,7 @@ function AdminDashboard() {
                 </div>
             </div>
         </div>
+  {/* )})} */}
         {/* LAST */}
         <div className='last'>
             <div className='last-div'>

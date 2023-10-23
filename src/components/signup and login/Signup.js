@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { useNavigate } from 'react-router';
 
 const schema = z.object({
     first_name: z.string(),
@@ -13,16 +14,28 @@ const schema = z.object({
 })
 function Signup({ setUser }) {
 
+    const navigate = useNavigate()
+
     const { register, handleSubmit, formState } = useForm({ resolver: zodResolver(schema)})
     const { errors } = formState
 
     function handleFormSubmit(formValues){
+
+        console.log(formValues.email)
+        const formData = {
+            username: formValues.username,
+            first_name: formValues.first_name,
+            last_name: formValues.last_name,
+            email: formValues.email,
+            profile_picture: formValues.profile_picture,
+            password: formValues.password
+        }
         fetch("https://venuevibe-server.onrender.com/clientSignup",{
             method: "POST",
-            body: JSON.stringify(formValues),
             headers:{
                 "Content-Type": "application/json"
             }, 
+            body: JSON.stringify(formData),
         })
         .then(response => {
             // if (!response.ok){
@@ -31,7 +44,8 @@ function Signup({ setUser }) {
             return response.json()
         })
         .then(response =>{
-            console.log(formValues)
+            console.log(response)
+            navigate("/dashboard")
         })
         .catch((error) => {
             // Handle the error here
@@ -87,13 +101,13 @@ function Signup({ setUser }) {
                             <label className='email'>Email</label>  
                             <small style={{color: "red"}}>{errors.email?.message}</small>
                         </div>
-                            <div className='password-div'>
-                                <input
-                                {...register("password")} type='password'
-                                />
-                                <label className='password'>Password</label> 
-                                <small style={{color: "red"}}>{errors.password?.message}</small>
-                            </div>
+                        <div className='password-div'>
+                            <input
+                            {...register("password")} type='password'
+                            />
+                            <label className='password'>Password</label> 
+                            <small style={{color: "red"}}>{errors.password?.message}</small>
+                        </div>
                         <button className='signup-button' type='submit'>Create Account</button>
                     </div>
                 </form>
