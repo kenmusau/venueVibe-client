@@ -51,12 +51,16 @@ function Space({ selectedSpace, onSelectedSpace }) {
           <p className="space-cost">Charges: Ksh {price} per night </p>
 
           <div className="space-reservation">
-            <button className={status ? "space-booked" : "space-available"}>
+            <button
+              className={status ? "btn space-booked" : "btn space-available"}
+            >
               {status ? "Occupied" : "available"}
             </button>
             <button
               //   to="booking"
-              className={status ? "space-Not-Available" : "space-book-now"}
+              className={
+                status ? "btn space-Not-Available" : "btn space-book-now"
+              }
               disabled={status}
               onClick={() => setModalOpen(true)}
             >

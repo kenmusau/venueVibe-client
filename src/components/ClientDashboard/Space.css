@@ -1,26 +1,30 @@
 .space-item {
   width: 100%;
-  padding-right: 50px;
+  padding-right: 10%;
 }
 
 .space-item-name {
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 
 .space-item-details-amenities {
   display: flex;
-  gap: 30px;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .space-item-details {
-  flex: 1;
+  /* flex: 1; */
+  width: 40%;
 }
 .space-amenities {
-  flex: 1;
+  width: 40%;
+  justify-self: center;
 }
 
 .space-item-details img {
-  height: 300px;
+  height: auto;
+  max-width: 100%;
   border-radius: 5px;
   margin-bottom: 20px;
 }
@@ -63,7 +67,7 @@
 
 .space-item-description {
   margin-bottom: 20px;
-  width: 450px;
+  width: 100%;
 }
 
 .space-item-description span {
@@ -141,10 +145,40 @@
     display: flex;
 } */
 
-@media screen and (max-width: 1400px) {
-  .left,
-  .main,
-  .right {
-    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+@media screen and (max-width: 850px) {
+  .space-item-details-amenities {
+    flex-direction: column;
+  }
+  .space-item-details {
+    width: 80%;
+    margin-bottom: 30px;
+    justify-self: center;
+  }
+  .space-amenities {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .space-reservation button {
+    /* padding: 8px 20px; */
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .space-reservation button {
+    /* padding: 8px 20px; */
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .space-reservation button {
+    /* padding: 8px 20px; */
+    padding: 8px 12px;
+    font-size: 10px;
+    margin-bottom: 5px;
   }
 }

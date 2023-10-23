@@ -11,6 +11,7 @@ import Help from "../ClientDashboard/Help";
 import Settings from "../ClientDashboard/Settings";
 import Recents from "../ClientDashboard/Recents";
 import ProfileModal from "../ClientDashboard/ProfileModal";
+import CreateSpace from "../CreateSpace";
 
 const useAuth = () => {
   const client = localStorage.getItem("client");
@@ -48,6 +49,7 @@ function MainRoutes() {
       ) : (
         <div>
           <Routes>
+            <Route path="/createspace" element={<CreateSpace />} />
             <Route path="/" element={<SignUpForm />} />
             <Route path="/login" element={<LogInForm />} />
             <Route

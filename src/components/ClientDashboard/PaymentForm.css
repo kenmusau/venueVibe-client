@@ -53,3 +53,19 @@
   font-style: italic;
   margin-bottom: 3px;
 }
+
+@media screen and (max-width: 600px) {
+  .payment-form {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .payment-form h1 {
+    font-size: 16px;
+  }
+  .payment-errors {
+    font-size: 8px;
+  }
+}
