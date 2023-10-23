@@ -21,7 +21,7 @@ function SpacesList() {
         console.error("Error fetching client:", error);
         isLoading(true);
       });
-  }, [setSpaces]);
+  }, [selectedSpace]);
 
   console.log(selectedSpace);
 
