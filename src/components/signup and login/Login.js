@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useNavigate } from 'react-router-dom';
-import ClipLoader from "react-spinners/ClipLoader";
 import { PulseLoader } from 'react-spinners';
 // import { response } from 'express';
 
@@ -89,7 +88,7 @@ function Login({userRef}) {
         <div className="loader-overlay">
           <PulseLoader
             color={'#262d2d'}
-            size={150}
+            size={50}
             aria-label="Loading Spinner"
             data-testid="loader"
           />

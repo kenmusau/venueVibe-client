@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Admin from "./components/admin/Admin";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import './App.css'
@@ -18,6 +18,35 @@ function App() {
   const [user, setUser] = useState([])
   const [admin, setAdmin] = useState()
   const userRef = useRef(null)
+  const [loggedin, setLoggedin] = useState()
+  const navigate = useNavigate()
+
+
+  useEffect(() => {
+    // Fetch the session data and check if the user is authenticated
+    fetch('https://venuevibe-server.onrender.com/me')
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Session problem');
+        }
+      })
+      .then(data => {
+        setUser(data);
+
+        // If the session data is empty or invalid, navigate to the landing page
+        if (!data) {
+          navigate('/');
+          setLoggedin(false)
+        }
+        setLoggedin(true)
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+  }, [navigate]);
+
 
 
   useEffect(()=>{

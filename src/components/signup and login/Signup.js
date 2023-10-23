@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { useNavigate } from 'react-router';
+import { PulseLoader } from 'react-spinners';
+
 
 const schema = z.object({
     first_name: z.string(),
@@ -15,7 +17,7 @@ const schema = z.object({
 function Signup({ setUser }) {
 
     const navigate = useNavigate()
-
+    const [showLoader, setShowLoader] = useState(false)
     const { register, handleSubmit, formState } = useForm({ resolver: zodResolver(schema)})
     const { errors } = formState
 
@@ -54,8 +56,24 @@ function Signup({ setUser }) {
         // console.log(formValues)
     }
 
+    useEffect(()=>{
+        setTimeout(()=>{
+            setShowLoader(false)
+        },4000)
+    },[showLoader, navigate])
+
   return (
     <div className='signup'>
+        {showLoader && (
+        <div className="loader-overlay">
+          <PulseLoader
+            color={'#262d2d'}
+            size={50}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
         <div className='left'>
     	    <h1><span>Venue</span>vibe</h1>
         </div>
