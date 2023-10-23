@@ -1,18 +1,21 @@
 .create-space-container {
   width: 50%;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-label {
+.create-space-container label {
   display: block;
   margin-top: 10px;
 }
 
-input {
+.create-space-container input {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
