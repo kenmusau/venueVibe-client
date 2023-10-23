@@ -83,11 +83,11 @@
 /* dates */
 
 /* Styling for Check-in and Check-out inputs */
-label {
+.booking-modal-content label {
   font-weight: bold;
 }
 
-input[type="date"] {
+.booking-modal-content input[type="date"] {
   width: 100%;
   padding: 0.5rem;
   margin-bottom: 10px;
@@ -96,39 +96,45 @@ input[type="date"] {
 }
 
 /* Responsive Styling */
-/* .booking-modal {
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 2rem;
-  max-width: 100%; 
-} */
-
-/* .booking-modal-footer {
-
-  align-items: center; 
-}
-
-
-@media (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .booking-modal {
-    width: 90%;
-  }
-
-  .booking-modal-footer {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px; /
-  }
-
-
-  input[type="date"] {
-    width: 100%;
+    width: 45%;
   }
 }
 
-
-@media (max-width: 768px) {
-  label {
-    
+@media screen and (max-width: 600px) {
+  .booking-modal {
+    width: 50%;
   }
-} */
+  .booking-btn,
+  .booking-Not-Available {
+    padding: 5px 15px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .booking-modal {
+    padding: 8px 15px;
+    width: 50%;
+    font-size: 13px;
+  }
+  .booking-btn,
+  .booking-Not-Available {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .booking-modal {
+    font-size: 10px;
+    padding: 5px 10px;
+    width: 50%;
+  }
+  .booking-btn,
+  .booking-Not-Available {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}
