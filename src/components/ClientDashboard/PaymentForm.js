@@ -129,7 +129,7 @@ function PaymentForm({
       <div className="payment-form">
         {errors && <p className="payment-errors">{errors}</p>}
         <button
-          className="payment-btn btn-submit"
+          className="confirm-btn payment-btn btn-submit"
           onClick={handleConfirmPayment}
         >
           {isLoading ? (

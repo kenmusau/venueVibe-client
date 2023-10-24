@@ -4,7 +4,7 @@ import "./ProfileModal.css";
 import { baseUrl } from "../../utils";
 // import axios from "axios";
 function ProfileModal({ onClose }) {
-  const { client, setClient } = useContext(ClientContext);
+  const { client } = useContext(ClientContext);
   console.log(client.data);
   const {
     id,

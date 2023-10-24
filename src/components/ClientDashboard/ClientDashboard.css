@@ -12,7 +12,8 @@
 .client-sidebar {
   background-color: #334155;
   /* background-color: #1864ab; */
-  width: 15%;
+  /* width: 15%; */
+  min-width: 150px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 10px;
   padding-top: 50px;
@@ -89,5 +90,14 @@
   margin-right: 8px;
 }
 
-/* @media screen and (max-width: 700px) {
-} */
+@media screen and (max-width: 700px) {
+  .client-sidebar {
+    min-width: 100px;
+  }
+  .sidebar-menu li {
+    font-size: 15px;
+  }
+  .client-view-content {
+    margin-left: 10px;
+  }
+}
