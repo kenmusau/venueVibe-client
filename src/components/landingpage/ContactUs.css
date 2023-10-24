@@ -2,12 +2,17 @@
   background-color: #f0f0f0;
   display: flex; 
   align-items: center;
+  height: 90vh;
 }
 
 .text-container {
-  width: 50%; 
+  flex: 1 1;
+  max-width: 50%;
+  padding-left: 20px;
+  width: 50%;
   padding: 20px;
   box-sizing: border-box;
+  margin-left: 12px;
 }
 
 .image-container {

@@ -12,10 +12,10 @@ function AdditionalContent() {
 
   return (
     <div>
-      <h3>Contact Details</h3>
-      <p>Email: <a href="mailto:info@venuevibe.com">info@venuevibe.com</a></p>
-      <p>Phone: (252) 555-0126</p>
-      <p>Address: 6391 Elgin St. Celina, Delaware 10299</p>
+      <h3 style={infoStyle}> Contact Details</h3>
+      <p style={infoStyle}> Email: <a href="mailto:info@venuevibe.com">info@venuevibe.com</a></p>
+      <p style={infoStyle}> Phone: (252) 555-0126</p>
+      <p style={infoStyle}> Address: 6391 Elgin St. Celina, Delaware 10299</p>
     </div>
   );
 }

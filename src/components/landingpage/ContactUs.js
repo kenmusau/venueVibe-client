@@ -14,6 +14,7 @@ function ContactUs() {
           <h2 className="title" style={{ color: 'black', fontSize: '3rem', fontFamily: 'Inter', fontWeight: '700', wordWrap: 'break-word' }}>
             Contact Us
           </h2>
+          <div style={{ width: '50%', height: '4px', background: 'black',  margin: '5px 20%', marginLeft: '5px' }}></div>
           <p className="description" style={{ color: 'rgba(0, 0, 0, 0.60)', fontSize: '1.5rem', fontFamily: 'Inter', fontWeight: '500', lineHeight: '2rem', wordWrap: 'break-word' }}>
             Feel free to reach out to us for any inquiries or feedback. We are here to assist you.
           </p>

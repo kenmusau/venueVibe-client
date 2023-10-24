@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 function SocialIcons() {
     const iconStyle = {
       color: '#F24E1E',
-      marginRight: '10px',
+      marginRight: '15px',
     };
   
     return (
