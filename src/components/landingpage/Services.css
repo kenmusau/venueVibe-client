@@ -8,7 +8,7 @@
     'five six';
 
   padding-block: 2rem;
-  width: min(95%, 70rem);
+  width: min(95%, 50rem);
   margin-inline: auto;
 }
 

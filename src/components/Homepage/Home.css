@@ -29,18 +29,18 @@
 .title {
   color: #000;
   font-family: 'Inter';
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 500;
   overflow-wrap: break-word;
 }
 
 .description {
   color: rgba(0, 0, 0, 0.60);
   font-family: 'Inter';
-  font-size: 30px;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 300;
-  line-height: 40px;
+  font-weight: 200;
+  line-height: 30px;
 }
 
 .full-screen {
@@ -49,7 +49,7 @@
 }
   
     .custom-button {
-      width: 50%;
+      width: 20%;
       padding: 15px;
       background: #FF5D22;
       border-radius: 10px;
