@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Navbar from '../landingpage/Navbar';
-import UserContext from '../Homepage/UserContext';
+import UserContext from '../landingpage/UserContext';
 import { Link } from 'react-router-dom';
-import '../Homepage/Home.css'; 
+import '../landingpage/Home.css'; 
 import images1 from '../../images/img1.jpg';
 
 function Home() {

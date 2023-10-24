@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AboutUs from './components/landingpage/AboutUs';
 import ContactUs from './components/landingpage/ContactUs';
 import Services from './components/landingpage/Services';
-import Home from './components/Homepage/Home';
-import UserContext from './components/Homepage/UserContext';
+import Home from './components/landingpage/Home';
+import UserContext from './components/landingpage/UserContext';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
