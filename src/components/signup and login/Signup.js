@@ -67,7 +67,7 @@ function Signup({ setUser }) {
         <div className="loader-overlay">
           <PulseLoader
             color={"#262d2d"}
-            size={50}
+            size={30}
             aria-label="Loading Spinner"
             data-testid="loader"
           />

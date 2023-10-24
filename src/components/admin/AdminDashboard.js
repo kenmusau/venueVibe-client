@@ -118,7 +118,7 @@ function AdminDashboard({ userRef }) {
             </a>
           </div>
           <div>
-            <a href="/spaces">
+            <a href="/AdminSpaces">
               <div className="spaces-icon">
                 <svg
                   viewBox="0 0 24 24"
