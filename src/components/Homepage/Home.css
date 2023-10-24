@@ -34,6 +34,10 @@
   overflow-wrap: break-word;
 }
 
+.mt-3, .mb-3 {
+  font-size: 1rem; 
+}
+
 .description {
   color: rgba(0, 0, 0, 0.60);
   font-family: 'Inter';
