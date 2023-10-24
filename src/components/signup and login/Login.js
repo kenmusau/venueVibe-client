@@ -5,6 +5,7 @@ import { z } from "zod";
 import { useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 import { ClientContext } from "../../context/ClientContext";
+import { AdminContext } from "../../context/AdminContext";
 
 const schema = z.object({
   username: z.string(),
@@ -19,6 +20,7 @@ function Login({ userRef }) {
   });
   const { errors } = formState;
   const { setClient } = useContext(ClientContext);
+  const { setAdmin } = useContext(AdminContext);
 
   // const [user, setUser] = useState([])
   // const userRef = useRef(null)
@@ -46,6 +48,7 @@ function Login({ userRef }) {
           return response.json();
         })
         .then((data) => {
+          setAdmin(data);
           localStorage.setItem("person", JSON.stringify(data));
           userRef.current = data;
           navigate("/dashboard");

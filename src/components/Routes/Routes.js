@@ -11,38 +11,38 @@ import Help from "../ClientDashboard/Help";
 import Settings from "../ClientDashboard/Settings";
 import Recents from "../ClientDashboard/Recents";
 import ProfileModal from "../ClientDashboard/ProfileModal";
-import Signup from "../signup and login/Signup";
-import Login from "../signup and login/Login";
+// import Signup from "../signup and login/Signup";
+// import Login from "../signup and login/Login";
 
-// const useAuth = () => {
-//   const client = localStorage.getItem("client");
-//   return !!client;
-// };
+const useAuth = () => {
+  const client = localStorage.getItem("client");
+  return !!client;
+};
 
 function MainRoutes() {
   const { client } = useContext(ClientContext);
   console.log(client);
-  // const isAuthenticated = useAuth();
+  const isAuthenticated = useAuth();
 
   return (
     <div>
-      <div>
-        <Routes>
-          <Route path="/client" element={<ClientDashboard />}>
-            <Route path="/client" element={<Navigate replace to="dash" />} />
-            <Route path="dash" element={<DashBoard client={client} />}>
-              <Route path="viewProfile" element={<ProfileModal />} />
+      {isAuthenticated && (
+        <div>
+          <Routes>
+            <Route path="/client" element={<ClientDashboard />}>
+              <Route path="/client" element={<Navigate replace to="dash" />} />
+              <Route path="dash" element={<DashBoard client={client} />}>
+                <Route path="viewProfile" element={<ProfileModal />} />
+              </Route>
+              <Route path="spaces" element={<SpacesList />}></Route>
+              <Route path="recents" element={<Recents />} />
+              <Route path="help" element={<Help />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="*" element={<PageNotFound />} />
             </Route>
-            <Route path="spaces" element={<SpacesList />}></Route>
-            <Route path="recents" element={<Recents />} />
-            <Route path="help" element={<Help />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Route>
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
+          </Routes>
+        </div>
+      )}
     </div>
   );
 }
@@ -68,8 +68,7 @@ export default MainRoutes;
 //   </Routes>
 // </div>
 
-// with authenticate
-
+// <div>
 // {isAuthenticated ? (
 //   <div>
 //     <Routes>
@@ -78,27 +77,19 @@ export default MainRoutes;
 //         <Route path="dash" element={<DashBoard client={client} />}>
 //           <Route path="viewProfile" element={<ProfileModal />} />
 //         </Route>
-//         <Route path="spaces" element={<SpacesList />}>
-//           {/* <Route path="booking" element={<BookingModal />} /> */}
-//         </Route>
+//         <Route path="spaces" element={<SpacesList />}></Route>
 //         <Route path="recents" element={<Recents />} />
 //         <Route path="help" element={<Help />} />
 //         <Route path="settings" element={<Settings />} />
 //         <Route path="*" element={<PageNotFound />} />
-//         {/* <Route path="booking" element={<BookingModal />} /> */}
 //       </Route>
 //     </Routes>
 //   </div>
 // ) : (
 //   <div>
 //     <Routes>
-//       <Route path="/createspace" element={<CreateSpace />} />
-//       {/* <Route path="/" element={<SignUpForm />} /> */}
 //       <Route path="/signup" element={<Signup />} />
-
-//       {/* <Route path="/login" element={<LogInForm />} /> */}
 //       <Route path="/login" element={<Login />} />
-
 //       <Route
 //         path="*"
 //         element={

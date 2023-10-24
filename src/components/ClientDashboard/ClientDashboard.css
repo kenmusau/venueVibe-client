@@ -26,6 +26,7 @@
   left: 0;
   bottom: 0;
   overflow-y: auto;
+  height: 100vh;
 }
 
 .client-view-content {
@@ -82,12 +83,18 @@
 
 .client-logout {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  height: 40px;
 }
 .logout-icon {
   height: 32px; /* Set the desired height */
   width: 32px; /* Set the desired width */
   margin-right: 8px;
+  justify-self: center;
+}
+
+.client-logout-text {
+  align-self: center;
 }
 
 @media screen and (max-width: 700px) {

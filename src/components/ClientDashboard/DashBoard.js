@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import "./DashBoard.css";
 import { Link } from "react-router-dom";
 import ProfileModal from "./ProfileModal";
+import { ClientContext } from "../../context/ClientContext";
 
 function formatToday(date) {
   const options = {
@@ -14,7 +15,8 @@ function formatToday(date) {
   return new Intl.DateTimeFormat("en-US", options).format(date);
 }
 
-function DashBoard({ client }) {
+function DashBoard() {
+  const { client } = useContext(ClientContext);
   console.log(client);
   const [modalOpen, setModalOpen] = useState(false);
   const today = formatToday(new Date());
@@ -27,13 +29,13 @@ function DashBoard({ client }) {
       <div className="client-intro">
         <div className="client-intro-greeting">
           <h1>
-            Welcome, <span>{client.username}!</span>
+            Welcome, <span>{client?.username}!</span>
           </h1>
           <p className="client-current-time">Today is {today}</p>
         </div>
         <div className="client-intro-profile">
           <div className="client-profile-details">
-            <h2 className="client-name">{`${client.first_name} ${client.last_name}`}</h2>
+            <h2 className="client-name">{`${client?.first_name} ${client?.last_name}`}</h2>
             <p>{client?.data?.email}</p>
             <Link
               to="viewProfile"
@@ -52,7 +54,7 @@ function DashBoard({ client }) {
               )}
           </div>
           <div className="client-profile-pic">
-            <img src={client.profile_picture} alt="profile user" />
+            <img src={client?.profile_picture} alt="profile user" />
           </div>
         </div>
       </div>
