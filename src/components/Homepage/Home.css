@@ -37,10 +37,10 @@
 .description {
   color: rgba(0, 0, 0, 0.60);
   font-family: 'Inter';
-  font-size: 1rem;
+  font-size: 2rem;
   font-style: normal;
-  font-weight: 200;
-  line-height: 30px;
+  font-weight: 700;
+  line-height: 3rem;
 }
 
 .full-screen {
