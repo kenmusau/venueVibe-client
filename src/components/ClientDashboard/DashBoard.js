@@ -15,6 +15,7 @@ function formatToday(date) {
 }
 
 function DashBoard({ client }) {
+  console.log(client);
   const [modalOpen, setModalOpen] = useState(false);
   const today = formatToday(new Date());
 
@@ -26,13 +27,13 @@ function DashBoard({ client }) {
       <div className="client-intro">
         <div className="client-intro-greeting">
           <h1>
-            Welcome, <span>{client?.data?.username}!</span>
+            Welcome, <span>{client.username}!</span>
           </h1>
           <p className="client-current-time">Today is {today}</p>
         </div>
         <div className="client-intro-profile">
           <div className="client-profile-details">
-            <h2 className="client-name">{`${client?.data?.first_name} ${client?.data?.last_name}`}</h2>
+            <h2 className="client-name">{`${client.first_name} ${client.last_name}`}</h2>
             <p>{client?.data?.email}</p>
             <Link
               to="viewProfile"
@@ -51,7 +52,7 @@ function DashBoard({ client }) {
               )}
           </div>
           <div className="client-profile-pic">
-            <img src={client?.data?.profile_picture} alt="profile user" />
+            <img src={client.profile_picture} alt="profile user" />
           </div>
         </div>
       </div>

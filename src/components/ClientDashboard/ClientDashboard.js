@@ -31,13 +31,13 @@ function ClientDashboard() {
         <ul className="sidebar-menu">
           <li
             className={
-              location.pathname === "/client/dashboard" ||
-              location.pathname === "/client/dashboard/viewProfile"
+              location.pathname === "/client/dash" ||
+              location.pathname === "/client/dash/viewProfile"
                 ? "active"
                 : ""
             }
           >
-            <Link to="dashboard">Dashboard</Link>
+            <Link to="dash">Dashboard</Link>
           </li>
           <li
             className={
