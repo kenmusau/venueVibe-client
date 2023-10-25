@@ -98,7 +98,7 @@ function BookingModal({
         ...bookingInfo,
         status: false,
         space_id: spaceId,
-        client_id: client.data.id,
+        client_id: client.id,
         amount: totalAmount,
       }),
     })

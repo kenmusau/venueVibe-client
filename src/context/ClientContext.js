@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { baseUrl } from "../utils";
+// import { baseUrl } from "../utils";
 // import axios from "axios";
 
 const ClientContext = createContext();
@@ -13,14 +13,6 @@ function ClientProvider({ children }) {
     if (client) {
       setClient(client);
       setIsLoggedIn(true);
-    } else {
-      fetch(`${baseUrl}/me`).then((r) => {
-        if (r.ok) {
-          r.json().then((user) => {
-            setClient(user);
-          });
-        }
-      });
     }
   }, []);
 

@@ -37,12 +37,13 @@ function ClientDashboard() {
         <ul className="sidebar-menu">
           <li
             className={
-              location.pathname === "/client/dashboard" ||
-              location.pathname === "/client/dashboard/viewProfile"
+              location.pathname === "/client/dash" ||
+              location.pathname === "/client/dash/viewProfile"
                 ? "active"
                 : ""
             }
           >
+
             <Link to="dashboard">
               <BiSolidDashboard /> Dashboard
             </Link>
@@ -85,7 +86,7 @@ function ClientDashboard() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="logout-icon"
+              className="client-logout-icon"
             >
               <path
                 strokeLinecap="round"
