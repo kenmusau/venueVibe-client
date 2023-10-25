@@ -7,7 +7,7 @@ function Settings() {
   const { client } = useContext(ClientContext);
 
   const { id, username, first_name, last_name, email, profile_picture } =
-    client?.data;
+    client;
 
   const [formData, updateFormData] = useState({
     username,

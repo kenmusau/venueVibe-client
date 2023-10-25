@@ -86,15 +86,15 @@
   color: #ef4444;
 }
 
-.client-logout {
+/* .client-logout {
   display: flex;
   align-items: flex-end;
   height: 40px;
-}
+} */
 .client-logout-icon {
   height: 32px; /* Set the desired height */
   width: 32px; /* Set the desired width */
-  margin-right: 8px;
+  /* margin-right: 8px; */
   justify-self: center;
 }
 

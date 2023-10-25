@@ -43,8 +43,7 @@ function ClientDashboard() {
                 : ""
             }
           >
-
-            <Link to="dashboard">
+            <Link to="dash">
               <BiSolidDashboard /> Dashboard
             </Link>
           </li>
