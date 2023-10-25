@@ -1,0 +1,184 @@
+.space-item {
+  width: 100%;
+  padding-right: 10%;
+}
+
+.space-item-name {
+  margin-bottom: 5%;
+}
+
+.space-item-details-amenities {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.space-item-details {
+  /* flex: 1; */
+  width: 40%;
+}
+.space-amenities {
+  width: 40%;
+  justify-self: center;
+}
+
+.space-item-details img {
+  height: auto;
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.space-cost {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.close-space-btn {
+  padding: 8px 22px;
+  background-color: #c92a2a;
+  color: white;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.space-item-location-icon {
+  width: 20px;
+  height: 20px;
+  stroke: #2f9e44;
+}
+
+.space-location {
+  display: flex;
+  gap: 4px;
+  align-items: stretch;
+}
+
+.space-item-location {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.space-item-description {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.space-item-description span {
+  font-weight: 900;
+}
+
+.space-booked {
+  background-color: #c92a2a;
+  padding: 8px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.space-available {
+  background-color: #51cf66;
+  padding: 8px 20px;
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 20px;
+  font-size: 16px;
+}
+
+.space-book-now {
+  background-color: orangered;
+  /* background-color: #1d4ed8; */
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.space-book-now:hover {
+  background-color: rgb(240, 97, 45);
+}
+.space-Not-Available {
+  background-color: rgb(225, 137, 137);
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+.space-amenities h2 {
+  margin-bottom: 20px;
+}
+
+.space-amenities li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.space-amenities p {
+  margin-bottom: 20px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.amenities-icon {
+  width: 18px;
+  height: 18px;
+  stroke: orangered;
+}
+
+/* 
+.space-item-details-booking{
+    display: flex;
+} */
+
+@media screen and (max-width: 850px) {
+  .space-item-details-amenities {
+    flex-direction: column;
+  }
+  .space-item-details {
+    width: 80%;
+    margin-bottom: 30px;
+    justify-self: center;
+  }
+  .space-amenities {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .space-reservation button {
+    /* padding: 8px 20px; */
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .space-reservation button {
+    /* padding: 8px 20px; */
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .space-reservation button {
+    /* padding: 8px 20px; */
+    padding: 8px 12px;
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+}
