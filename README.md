@@ -4,6 +4,12 @@
 
 Welcome to VenueVibe, an online marketplace that connects space owners with individuals seeking unique venues for their meetings, events, or activities. This README provides an overview of the project and guides you on setting it up and running.
 
+**Live Link**
+You can access the live version of the platform at [Venue Vibe](https://venue-vibe-client.vercel.app/).
+
+**Front End Repository**
+For more details and access to the frontend code, please visit our [GitHub repository](https://github.com/Ken-Musau/venueVibe-server).
+
 ## Table of Contents
 
 - [Features](#features)
