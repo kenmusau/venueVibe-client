@@ -25,17 +25,19 @@
   bottom: 0;
   overflow-y: auto;
   height: 100vh;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .client-sidebar a:link {
   display: flex;
   align-items: center;
+  padding-right: 5px;
 }
 
 .sidebar-menu li a:link svg {
   width: 24px;
   height: 24px;
+  padding-right: 0;
 }
 
 .client-view-content {
@@ -44,7 +46,7 @@
   padding: 20px;
   overflow-y: auto;
   flex: 1;
-  padding-left: 20%;
+  padding-left: 15%;
 }
 .sidebar-logo {
   font-family: "Oswald", sans-serif;
