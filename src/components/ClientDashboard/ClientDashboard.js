@@ -63,7 +63,7 @@ function ClientDashboard() {
             className={location.pathname === "/client/recents" ? "active" : ""}
           >
             <Link to="recents">
-              <BiAnalyse /> Recents
+              <BiAnalyse /> History
             </Link>
           </li>
           <li className={location.pathname === "/client/help" ? "active" : ""}>
