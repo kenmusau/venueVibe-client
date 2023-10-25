@@ -37,7 +37,10 @@ function Login({ userRef }) {
 
     setShowLoader(true);
 
-    if (formValues.username === "admin1" && formValues.password === "password") {
+    if (
+      formValues.username === "admin1" &&
+      formValues.password === "password"
+    ) {
       fetch("https://venuevibe-server.onrender.com/adminlogin", {
         method: "POST",
         headers: {
@@ -77,12 +80,12 @@ function Login({ userRef }) {
         })
         .catch((error) => {
           // Handle the error here
-          setShowLoader(false)
+          setShowLoader(false);
           Swal.fire({
-            icon: 'error',
-            title: 'Unauthorized',
-            text: 'wrong username or password!',
-          })
+            icon: "error",
+            title: "Unauthorized",
+            text: "wrong username or password!",
+          });
         });
     }
   }
@@ -127,6 +130,7 @@ function Login({ userRef }) {
             <div className="input-divs">
               <input
                 name="password"
+                type="password"
                 placeholder="password"
                 {...register("password")}
                 autocomplete="off"

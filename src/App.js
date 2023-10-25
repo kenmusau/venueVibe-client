@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AboutUs from './components/landingpage/AboutUs';
-import ContactUs from './components/landingpage/ContactUs';
-import Services from './components/landingpage/Services';
-import Home from './components/landingpage/Home';
-import UserContext from './components/landingpage/UserContext';
-import { Route, Routes, useNavigate } from "react-router-dom";
-import Admin from "./components/admin/Admin";
+import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import AboutUs from "./components/landingpage/AboutUs";
+import ContactUs from "./components/landingpage/ContactUs";
+import Services from "./components/landingpage/Services";
+import Home from "./components/landingpage/Home";
+import { useNavigate } from "react-router-dom";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import "./App.css";
 import AddUser from "./components/admin/AddUser";
@@ -14,14 +12,10 @@ import SpacesManagement from "./components/admin/SpacesManagement";
 import AddSpace from "./components/admin/AddSpace";
 import UserManagement from "./components/admin/UserManagement";
 import Profile from "./components/admin/Profile";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Login from "./components/signup and login/Login";
 import Signup from "./components/signup and login/Signup";
-import Landing from "./components/Landing";
-// import { Routes, Route } from "react-router-dom";
 import MainRoutes from "./components/Routes/Routes";
-import SpaceDetails from "./components/admin/SpaceDetails";
-// import BookingModal from "./components/ClientDashboard/BookingModal";
 
 function App() {
   const [newUser, setNewUser] = useState();
@@ -102,7 +96,7 @@ function App() {
           element={<Signup setUser={setUser} setAdmin={setAdmin} />}
         />
 
-         <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />

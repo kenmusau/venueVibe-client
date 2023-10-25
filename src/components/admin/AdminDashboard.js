@@ -5,7 +5,7 @@ import { AdminContext } from "../../context/AdminContext";
 
 function AdminDashboard({ userRef }) {
   const { admin, setAdmin } = useContext(AdminContext);
-  const [bookings, setBookings] = useState([])
+  const [bookings, setBookings] = useState([]);
   console.log(admin);
 
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -17,18 +17,21 @@ function AdminDashboard({ userRef }) {
     setCurrentDate(newDate);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch("")
-    .then(response => {
-      if(!response.ok){
-        throw new Error("Error occured")
-      }
-      return response.json()
-    })
-    .then(data => setBookings(data))
-  })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error occured");
+        }
+        return response.json();
+      })
+      .then((data) => setBookings(data));
+  });
 
-  const income = bookings.reduce((accumulator, booking) => accumulator + booking.amount, 0);
+  const income = bookings.reduce(
+    (accumulator, booking) => accumulator + booking.amount,
+    0
+  );
   function handleLogout() {
     Swal.fire({
       title: "Are you sure?",
@@ -47,6 +50,8 @@ function AdminDashboard({ userRef }) {
             if (response.ok) {
               userRef.current = null;
               setAdmin(null);
+              localStorage.removeItem("person");
+              navigate("/login");
             } else {
               console.error("Logout failed:", response.statusText);
             }
@@ -60,9 +65,6 @@ function AdminDashboard({ userRef }) {
           "Your have been succesfully logged out.",
           "success"
         );
-        setTimeout(() => {
-          navigate("/");
-        }, [1500]);
       }
     });
   }
@@ -86,9 +88,9 @@ function AdminDashboard({ userRef }) {
     <div className="admin">
       <div className="first">
         <a id="company-name" href="/">
-        <h1 className="sidebar-logo">
-          Venue<span>Vibe</span>
-        </h1>
+          <h1 className="sidebar-logo">
+            Venue<span>Vibe</span>
+          </h1>
         </a>
         <div className="panel-div">
           <div>
@@ -284,7 +286,9 @@ function AdminDashboard({ userRef }) {
                 />
               </svg>
               <div className="name-gmail">
-                <small>{admin?.first_name} {admin?.last_name}</small>
+                <small>
+                  {admin?.first_name} {admin?.last_name}
+                </small>
                 <small>{admin?.email}</small>
               </div>
               <img src={admin?.profile_picture} />
