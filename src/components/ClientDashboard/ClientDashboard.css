@@ -25,13 +25,13 @@
   bottom: 0;
   overflow-y: auto;
   height: 100vh;
+  padding-left: 10px;
 }
 
 .client-sidebar a:link {
   display: flex;
   align-items: center;
-  gap: 5px;
-
+  /* gap: 5px; */
 }
 
 .client-view-content {
