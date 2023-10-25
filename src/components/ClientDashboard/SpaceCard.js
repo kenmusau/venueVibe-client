@@ -4,8 +4,14 @@ import "./SpaceCard.css";
 function SpaceCard({ space, onSelectedSpace }) {
   const { name, image, description, location, price } = space;
 
+  const handleClick = () => {
+    if (typeof onSelectedSpace === "function") {
+      onSelectedSpace(space);
+    }
+  };
+
   return (
-    <div className="space-card" onClick={() => onSelectedSpace(space)}>
+    <div className="space-card" onClick={handleClick}>
       <img src={image} alt={name} className="space-card-image" />
       <div className="space-card-content">
         <h4 className="space-card-name">{name}</h4>
