@@ -108,9 +108,9 @@
   align-self: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .client-view-content {
-    margin-left: 50px;
+    margin-left: 70px;
   }
   .sidebar-logo {
     font-size: 15px;
@@ -132,15 +132,15 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   .client-view-content {
-    margin-left: 50px;
+    margin-left: 70px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .client-view-content {
-    margin-left: 40px;
+    margin-left: 50px;
   }
   .client-sidebar {
     min-width: 100px;
