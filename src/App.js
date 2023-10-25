@@ -1,3 +1,10 @@
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AboutUs from './components/landingpage/AboutUs';
+import ContactUs from './components/landingpage/ContactUs';
+import Services from './components/landingpage/Services';
+import Home from './components/landingpage/Home';
+import UserContext from './components/landingpage/UserContext';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Admin from "./components/admin/Admin";
 import AdminDashboard from "./components/admin/AdminDashboard";
@@ -95,7 +102,10 @@ function App() {
           element={<Signup setUser={setUser} setAdmin={setAdmin} />}
         />
 
-        <Route path="/" element={<Landing />} />
+         <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </div>
   );
