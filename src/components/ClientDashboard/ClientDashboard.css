@@ -86,7 +86,7 @@
   align-items: flex-end;
   height: 40px;
 }
-.logout-icon {
+.client-logout-icon {
   height: 32px; /* Set the desired height */
   width: 32px; /* Set the desired width */
   margin-right: 8px;

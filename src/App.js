@@ -101,8 +101,6 @@ function App() {
           <Route path="/" element={<Landing />} />
         </Routes>
       </div>
-
-      <MainRoutes />
     </div>
   );
 }

@@ -69,7 +69,7 @@ function ClientDashboard() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="logout-icon"
+              className="client-logout-icon"
             >
               <path
                 strokeLinecap="round"
