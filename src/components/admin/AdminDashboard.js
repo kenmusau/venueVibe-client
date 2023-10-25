@@ -1,12 +1,34 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AdminContext } from "../../context/AdminContext";
 
 function AdminDashboard({ userRef }) {
   const { admin, setAdmin } = useContext(AdminContext);
+  const [bookings, setBookings] = useState([])
   console.log(admin);
 
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  // Step 3: Create a function to update the date (e.g., to increment it)
+  const incrementDate = () => {
+    const newDate = new Date(currentDate);
+    newDate.setDate(currentDate.getDate() + 1); // Example: Increment by one day
+    setCurrentDate(newDate);
+  };
+
+  useEffect(()=>{
+    fetch("")
+    .then(response => {
+      if(!response.ok){
+        throw new Error("Error occured")
+      }
+      return response.json()
+    })
+    .then(data => setBookings(data))
+  })
+
+  const income = bookings.reduce((accumulator, booking) => accumulator + booking.amount, 0);
   function handleLogout() {
     Swal.fire({
       title: "Are you sure?",
@@ -45,9 +67,16 @@ function AdminDashboard({ userRef }) {
     });
   }
 
-  useEffect(() => {
-    console.log(userRef);
-  });
+  // useEffect(() => {
+  //     fetch("")
+  //     .then(response=>{
+  //       if(!response.ok){
+  //         throw new Error("Error occured")
+  //       }
+  //       return response.json()
+  //     })
+  //     .then(data => )
+  // });
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -57,9 +86,9 @@ function AdminDashboard({ userRef }) {
     <div className="admin">
       <div className="first">
         <a id="company-name" href="/">
-          <h1>
-            <span>Venue</span>vibe
-          </h1>
+        <h1 className="sidebar-logo">
+          Venue<span>Vibe</span>
+        </h1>
         </a>
         <div className="panel-div">
           <div>
@@ -86,7 +115,6 @@ function AdminDashboard({ userRef }) {
                     <rect x="13" y="11" width="9" height="11" rx="2"></rect>
                   </g>
                 </svg>
-                {/* <img src='https://www.svgrepo.com/show/459911/dashboard.svg' /> */}
                 <label>Dashboard</label>
               </div>
             </a>
@@ -191,7 +219,7 @@ function AdminDashboard({ userRef }) {
           <h3>
             Welcome back, {admin?.first_name} {admin?.last_name}
           </h3>
-          <p>Today is Mon, 20th Sept 2023</p>
+          <p>Today is {currentDate.toDateString()}</p>
         </div>
         <div className="stats">
           <div className="spaces-stats">
@@ -256,16 +284,16 @@ function AdminDashboard({ userRef }) {
                 />
               </svg>
               <div className="name-gmail">
-                <small>Warren Wade</small>
-                <small>wade.warren@gmail.com</small>
+                <small>{admin?.first_name} {admin?.last_name}</small>
+                <small>{admin?.email}</small>
               </div>
-              <img src="https://media.istockphoto.com/id/1192648836/photo/young-happy-woman-in-an-airplane-cabin.webp?b=1&s=170667a&w=0&k=20&c=0dJXvw38imDjUKc7_lwttWgfpFjpzrUbbalmIhUmebU=" />
+              <img src={admin?.profile_picture} />
             </div>
             <button onClick={handleNavigate}>View Profile</button>
           </div>
           <div className="income">
             <h2>Income</h2>
-            <h1>$34.1K</h1>
+            <h1>${income}</h1>
           </div>
           <div className="profits">
             <h2>Profits</h2>

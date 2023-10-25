@@ -13,6 +13,7 @@ import Signup from "./components/signup and login/Signup";
 import Landing from "./components/Landing";
 // import { Routes, Route } from "react-router-dom";
 import MainRoutes from "./components/Routes/Routes";
+import SpaceDetails from "./components/admin/SpaceDetails";
 // import BookingModal from "./components/ClientDashboard/BookingModal";
 
 function App() {
@@ -58,7 +59,6 @@ function App() {
   return (
     <div className="App">
       {isAdmin ? (
-        <div>
           <Routes>
             <Route
               path="/dashboard"
@@ -84,11 +84,9 @@ function App() {
             />
             <Route path="/profile" element={<Profile />} />
           </Routes>
-        </div>
       ) : (
         <MainRoutes />
       )}
-      <div className="all">
         <Routes>
           <Route
             path="/login"
@@ -98,9 +96,9 @@ function App() {
             path="/signup"
             element={<Signup setUser={setUser} setAdmin={setAdmin} />}
           />
+          
           <Route path="/" element={<Landing />} />
         </Routes>
-      </div>
 
       <MainRoutes />
     </div>

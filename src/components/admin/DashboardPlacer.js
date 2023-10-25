@@ -1,67 +1,10 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Swal from 'sweetalert2'
+import React from 'react'
+import { Outlet } from 'react-router-dom'
 
-
-function UserManagement({userRef, newUser}) {
-
-  const [users, setUsers] = useState([])
-
-  useEffect(()=>{
-    fetch("https://venuevibe-server.onrender.com/clients")
-    .then(resp => resp.json())
-    .then(cont => setUsers(cont))
-},[newUser])
-
-
-function handleLogout(){
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You will be logged out from the site!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#262d2d',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Logout!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            fetch("https://venuevibe-server.onrender.com/adminlogout",{
-                method: "DELETE",
-            })
-            .then(response => {
-                if (response.ok) {
-                    userRef.current = null;
-                } else {
-                    console.error("Logout failed:", response.statusText);
-                }
-            })
-            .catch(error => {
-                // Handle network errors
-                console.error("Logout error:", error);
-            });
-            Swal.fire(
-                'Logged out!',
-                'Your have been succesfully logged out.',
-                'success'
-                )
-                setTimeout(()=>{
-                    navigate("/");
-                },[1500])
-            }
-
-      })
-
-
-}
-
-const navigate = useNavigate()
-const handleNavigate = () =>{
-  navigate("/add-user")
-}
+function DashboardPlacer() {
   return (
-    <div className='user-manage'>
-       <div className="first">
+    <div className='placer'>
+    <div className="first">
         <a id="company-name" href="/">
         <h1 className="sidebar-logo">
           Venue<span>Vibe</span>
@@ -92,6 +35,7 @@ const handleNavigate = () =>{
                     <rect x="13" y="11" width="9" height="11" rx="2"></rect>
                   </g>
                 </svg>
+                {/* <img src='https://www.svgrepo.com/show/459911/dashboard.svg' /> */}
                 <label>Dashboard</label>
               </div>
             </a>
@@ -188,25 +132,9 @@ const handleNavigate = () =>{
           </div>
         </div>
       </div>
-      <div className='second'>
-            <div className='second-header'>
-                <h1>User Management</h1>
-            </div>
-            <div className='trial'>
-                {users.map(user =>{
-                    return(
-                    <div className='user-card'>
-                        <img src={user.image} alt=""/>
-                        <div className='details'>
-                            <p>{user.first_name} {user.last_name}</p>
-                            <p id='email'>{user.email}</p>
-                        </div>
-                    </div>
-                )})}
-            </div>
-        </div>
+      <Outlet/>
     </div>
   )
 }
 
-export default UserManagement
+export default DashboardPlacer

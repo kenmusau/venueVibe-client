@@ -7,6 +7,9 @@ function AddSpace({setNewSpace}) {
     const {register, handleSubmit} = useForm()
     const navigate = useNavigate()
 
+    function handleNavigate(){
+        navigate("/Adminspaces")
+    }
     const handleFormSubmit = (formValues) =>{
 
         const formData = {
@@ -33,7 +36,7 @@ function AddSpace({setNewSpace}) {
     })
         .then(data => {
             setNewSpace(data)
-            navigate("/spaces")
+            navigate("/Adminspaces")
         })
     }
   return (
@@ -59,7 +62,7 @@ function AddSpace({setNewSpace}) {
                   </a>
               </div>
               <div>
-                  <a href='/spaces'>
+                  <a href='/Adminspaces'>
                       <div className='spaces-icon'>
                       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5 22.5H18.75C19.1478 22.5 19.5294 22.342 19.8107 22.0607C20.092 21.7794 20.25 21.3978 20.25 21V13.5" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7.5 22.5H5.25C4.85218 22.5 4.47064 22.342 4.18934 22.0607C3.90804 21.7794 3.75 21.3978 3.75 21V13.5" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M0.75 12.129L10.939 1.939C11.0783 1.79961 11.2437 1.68904 11.4258 1.61359C11.6078 1.53815 11.8029 1.49932 12 1.49932C12.1971 1.49932 12.3922 1.53815 12.5742 1.61359C12.7563 1.68904 12.9217 1.79961 13.061 1.939L23.122 12" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 12C13.2426 12 14.25 10.9926 14.25 9.75C14.25 8.50736 13.2426 7.5 12 7.5C10.7574 7.5 9.75 8.50736 9.75 9.75C9.75 10.9926 10.7574 12 12 12Z" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M12 13.5C11.0054 13.5 10.0516 13.8951 9.34835 14.5983C8.64509 15.3016 8.25 16.2554 8.25 17.25V18H9.75L10.5 22.5H13.5L14.25 18H15.75V17.25C15.75 16.2554 15.3549 15.3016 14.6517 14.5983C13.9484 13.8951 12.9946 13.5 12 13.5Z" stroke="#71717A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                           <label>Spaces</label>
@@ -75,9 +78,9 @@ function AddSpace({setNewSpace}) {
           </div>
       </div>
         <div className='user-form'>
-        <button>back</button>
+        <button onClick={handleNavigate}><svg width="133px" height="133px" viewBox="0 0 1024.00 1024.00" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="56.32000000000001"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#000000" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path><path fill="#000000" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path></g></svg>back</button>
         <div className='add-user-div'>
-            <h3>Submit details to save user </h3>
+            <h3>Submit details to save space </h3>
             <form className='add-user-form' onSubmit={handleSubmit(handleFormSubmit)}>
                 <label>Space name:    
                 <input {...register("name")}/>

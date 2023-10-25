@@ -36,7 +36,7 @@ function Login({ userRef }) {
 
     setShowLoader(true);
 
-    if (formValues.username === "admin1") {
+    if (formValues.username === "admin1" && formValues.password === "password") {
       fetch("https://venuevibe-server.onrender.com/adminlogin", {
         method: "POST",
         headers: {

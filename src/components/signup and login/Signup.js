@@ -74,8 +74,8 @@ function Signup({ setUser }) {
         </div>
       )}
       <div className="left">
-        <h1>
-          <span>Venue</span>vibe
+        <h1 className="sidebar-logo">
+          Venue<span>Vibe</span>
         </h1>
       </div>
       <div className="right">
@@ -84,7 +84,7 @@ function Signup({ setUser }) {
           <form onSubmit={handleSubmit(handleFormSubmit)}>
             <div className="form">
               <div className="names">
-                <div>
+                <div className="firstname-input">
                   <input
                     className="first-input"
                     type="text"
@@ -95,7 +95,7 @@ function Signup({ setUser }) {
                     {errors.first_name?.message}
                   </small>
                 </div>
-                <div>
+                <div className="lastname-input">
                   <input {...register("last_name")} />
                   <label className="lastname">Last Name</label>
                   <small style={{ color: "red" }}>
@@ -139,19 +139,6 @@ function Signup({ setUser }) {
           <p className="have-account">
             Already have an account? <a href="/login">login</a>
           </p>
-        </div>
-        <div className="or">
-          <hr />
-          OR
-          <hr />
-        </div>
-        <div className="social-login">
-          <div className="google">
-            <a href="">Signup with Google</a>
-          </div>
-          <div className="facebook">
-            <a href="">Signup with Facebook</a>
-          </div>
         </div>
       </div>
     </div>
