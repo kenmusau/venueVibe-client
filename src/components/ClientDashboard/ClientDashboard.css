@@ -11,8 +11,6 @@
 
 .client-sidebar {
   background-color: #334155;
-  /* background-color: #1864ab; */
-  /* width: 15%; */
   min-width: 150px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 10px;
@@ -21,11 +19,12 @@
   flex-direction: column;
   align-items: center;
   color: #fff;
-  position: fixed; /* Fixes the sidebar */
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   overflow-y: auto;
+  height: 100vh;
 }
 
 .client-sidebar a:link {
@@ -57,7 +56,7 @@
 }
 
 .sidebar-menu li {
-  margin-bottom: 30%;
+  margin-bottom: 30px;
   font-size: 18px;
   font-weight: 900;
   cursor: pointer;
@@ -81,8 +80,8 @@
   color: #ff5d22;
 }
 .sidebar-menu li:last-child {
-  font-weight: 900;
-  margin-top: 200px;
+  font-weight: 600;
+  margin-top: 100px;
   color: #ef4444;
 }
 
@@ -112,10 +111,6 @@
   }
 }
 
-/* Your existing CSS code here */
-
-/* Your existing CSS code here */
-
 @media screen and (max-width: 400px) {
   .client-view-content {
     margin-left: 40px;
@@ -125,22 +120,21 @@
   }
 
   .sidebar-menu li {
-    font-size: 0; /* Hide the text */
-    display: flex; /* Align icons and text horizontally */
-    align-items: center; /* Vertical centering of icons and text */
+    font-size: 0;
+    display: flex;
+    align-items: center;
   }
 
   .sidebar-menu li a:link {
     text-decoration: none;
     color: #fff;
-    display: flex; /* Align icons and text horizontally */
-    align-items: center; /* Vertical centering of icons and text */
-    gap: 5px; /* Space out icons and text */
-    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
   .sidebar-menu li a:link svg {
-    width: 24px; /* Adjust the icon size as needed */
-    height: 24px; /* Adjust the icon size as needed */
+    width: 24px;
+    height: 24px;
   }
 }

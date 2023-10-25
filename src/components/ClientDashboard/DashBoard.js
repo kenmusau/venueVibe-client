@@ -39,7 +39,7 @@ function DashBoard({ client }) {
               className="client-update-profile-bnt"
               onClick={() => setModalOpen(true)}
             >
-              Update Profile
+              View Profile
             </Link>
             {modalOpen &&
               createPortal(
