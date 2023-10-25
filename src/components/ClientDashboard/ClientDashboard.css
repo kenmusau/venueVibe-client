@@ -31,7 +31,11 @@
 .client-sidebar a:link {
   display: flex;
   align-items: center;
-  /* gap: 5px; */
+}
+
+.sidebar-menu li a:link svg {
+  width: 24px;
+  height: 24px;
 }
 
 .client-view-content {
@@ -102,12 +106,16 @@
   align-self: center;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+  .client-view-content {
+    margin-left: 50px;
+  }
   .sidebar-logo {
     font-size: 15px;
   }
   .client-sidebar {
     min-width: 100px;
+    padding-right: 5px;
   }
   .sidebar-menu li {
     font-size: 15px;
@@ -115,6 +123,16 @@
   }
   .client-view-content {
     margin-left: 10px;
+  }
+  .sidebar-menu li a:link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .client-view-content {
+    margin-left: 50px;
   }
 }
 
