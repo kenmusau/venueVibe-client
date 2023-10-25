@@ -1,4 +1,3 @@
-/* CSS for Beautiful and Responsive Settings Page */
 
 .settings-container {
   max-width: 800px;
@@ -40,7 +39,6 @@
   background-color: #0056b3;
 }
 
-/* Additional Styles for New Elements */
 .profile-update-form hr {
   margin: 20px 0;
   border: none;
