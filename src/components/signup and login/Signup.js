@@ -6,12 +6,12 @@ import { useNavigate } from "react-router";
 import { PulseLoader } from "react-spinners";
 
 const schema = z.object({
-  first_name: z.string(),
-  last_name: z.string(),
+  first_name: z.string().min(1),
+  last_name: z.string().min(1),
   email: z.string().email(),
-  username: z.string(),
+  username: z.string().min(1),
   profile_picture: z.string().url(),
-  password: z.string(),
+  password: z.string().min(6),
 });
 function Signup({ setUser }) {
   const navigate = useNavigate();
@@ -49,10 +49,8 @@ function Signup({ setUser }) {
         navigate("/login");
       })
       .catch((error) => {
-        // Handle the error here
         console.error("Fetch error:", error);
       });
-    // console.log(formValues)
   }
 
   useEffect(() => {
