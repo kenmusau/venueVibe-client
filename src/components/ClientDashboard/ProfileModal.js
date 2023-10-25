@@ -5,7 +5,7 @@ import { baseUrl } from "../../utils";
 // import axios from "axios";
 function ProfileModal({ onClose }) {
   const { client } = useContext(ClientContext);
-  console.log(client.data);
+  console.log(client);
   const {
     id,
     username,
@@ -14,7 +14,7 @@ function ProfileModal({ onClose }) {
     email,
     password,
     profile_picture,
-  } = client?.data;
+  } = client;
 
   const [formData, updateFormData] = useState({
     username,

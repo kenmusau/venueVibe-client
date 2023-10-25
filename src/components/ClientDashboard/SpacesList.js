@@ -23,8 +23,6 @@ function SpacesList() {
       });
   }, [selectedSpace]);
 
-  console.log(selectedSpace);
-
   if (selectedSpace)
     return (
       <Space selectedSpace={selectedSpace} onSelectedSpace={setSelectedSpace} />
