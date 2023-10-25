@@ -1,0 +1,16 @@
+.recents-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recents-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.space-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 60px;
+}
