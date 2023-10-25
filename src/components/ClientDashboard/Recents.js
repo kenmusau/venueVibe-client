@@ -13,7 +13,6 @@ function Recents() {
     fetch(`${baseUrl}/bookings`)
       .then((res) => res.json())
       .then((bookings) => {
-        console.log(bookings);
         const filtered = bookings.filter(
           (booking) => booking.client.id === id && booking.status === true
         );

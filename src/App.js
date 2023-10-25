@@ -59,48 +59,44 @@ function App() {
   return (
     <div className="App">
       {isAdmin ? (
-          <Routes>
-            <Route
-              path="/dashboard"
-              element={<AdminDashboard userRef={userRef} />}
-            />
-            <Route
-              path="/add-user"
-              element={<AddUser setNewUser={setNewUser} />}
-            />
-            <Route
-              path="/AdminSpaces"
-              element={
-                <SpacesManagement userRef={userRef} newSpace={newSpace} />
-              }
-            />
-            <Route
-              path="/add-space"
-              element={<AddSpace setNewSpace={setNewSpace} />}
-            />
-            <Route
-              path="/users"
-              element={<UserManagement userRef={userRef} newUser={newUser} />}
-            />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+        <Routes>
+          <Route
+            path="/dashboard"
+            element={<AdminDashboard userRef={userRef} />}
+          />
+          <Route
+            path="/add-user"
+            element={<AddUser setNewUser={setNewUser} />}
+          />
+          <Route
+            path="/AdminSpaces"
+            element={<SpacesManagement userRef={userRef} newSpace={newSpace} />}
+          />
+          <Route
+            path="/add-space"
+            element={<AddSpace setNewSpace={setNewSpace} />}
+          />
+          <Route
+            path="/users"
+            element={<UserManagement userRef={userRef} newUser={newUser} />}
+          />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
       ) : (
         <MainRoutes />
       )}
-        <Routes>
-          <Route
-            path="/login"
-            element={<Login setUser={setUser} userRef={userRef} />}
-          />
-          <Route
-            path="/signup"
-            element={<Signup setUser={setUser} setAdmin={setAdmin} />}
-          />
-          
-          <Route path="/" element={<Landing />} />
-        </Routes>
+      <Routes>
+        <Route
+          path="/login"
+          element={<Login setUser={setUser} userRef={userRef} />}
+        />
+        <Route
+          path="/signup"
+          element={<Signup setUser={setUser} setAdmin={setAdmin} />}
+        />
 
-      <MainRoutes />
+        <Route path="/" element={<Landing />} />
+      </Routes>
     </div>
   );
 }

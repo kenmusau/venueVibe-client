@@ -24,7 +24,7 @@
   left: 0;
   bottom: 0;
   overflow-y: auto;
-  height: 100vh;
+  max-height: 100vh;
   padding-left: 5px;
 }
 
