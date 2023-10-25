@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useNavigate } from "react-router";
 import { PulseLoader } from "react-spinners";
+import Swal from "sweetalert2";
 
 const schema = z.object({
   first_name: z.string().min(1),
@@ -22,7 +23,7 @@ function Signup({ setUser }) {
   const { errors } = formState;
 
   function handleFormSubmit(formValues) {
-    console.log(formValues.email);
+
     const formData = {
       username: formValues.username,
       first_name: formValues.first_name,
@@ -31,6 +32,9 @@ function Signup({ setUser }) {
       profile_picture: formValues.profile_picture,
       password: formValues.password,
     };
+
+    setShowLoader(true)
+
     fetch("https://venuevibe-server.onrender.com/clientSignup", {
       method: "POST",
       headers: {
@@ -49,7 +53,11 @@ function Signup({ setUser }) {
         navigate("/login");
       })
       .catch((error) => {
-        console.error("Fetch error:", error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+        })
       });
   }
 
@@ -60,7 +68,7 @@ function Signup({ setUser }) {
   }, [showLoader, navigate]);
 
   return (
-    <div className="signup">
+    <div className={`signup ${showLoader ? "blur" : ""}`}>
       {showLoader && (
         <div className="loader-overlay">
           <PulseLoader

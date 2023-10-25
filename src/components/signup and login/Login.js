@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { PulseLoader } from "react-spinners";
 import { ClientContext } from "../../context/ClientContext";
 import { AdminContext } from "../../context/AdminContext";
+import Swal from "sweetalert2";
 
 const schema = z.object({
-  username: z.string(),
-  password: z.string(),
+  username: z.string().min(1),
+  password: z.string().min(1),
 });
 
 function Login({ userRef }) {
@@ -76,7 +77,12 @@ function Login({ userRef }) {
         })
         .catch((error) => {
           // Handle the error here
-          console.error("Fetch error:", error);
+          setShowLoader(false)
+          Swal.fire({
+            icon: 'error',
+            title: 'Unauthorized',
+            text: 'wrong username or password!',
+          })
         });
     }
   }
@@ -125,7 +131,7 @@ function Login({ userRef }) {
                 {...register("password")}
                 autocomplete="off"
               />
-              <p>{errors.password?.message}</p>
+              <p style={{ color: "red" }}>{errors.password?.message}</p>
             </div>
             <button className="login-button" type="submit">
               LOGIN
