@@ -31,7 +31,8 @@ function handleLogout(){
             })
             .then(response => {
                 if (response.ok) {
-                    userRef.current = null;
+                  localStorage.removeItem("person");
+                  navigate("/login")
                 } else {
                     console.error("Logout failed:", response.statusText);
                 }

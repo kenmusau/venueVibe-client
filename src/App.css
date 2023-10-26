@@ -271,8 +271,9 @@ html {
   justify-content: center;
 }
 
-.panel-div a:active {
-  background-color: #037e00;
+.panel-div a:hover {
+  /* box-shadow: inset; */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2)
 }
 
 .placer {

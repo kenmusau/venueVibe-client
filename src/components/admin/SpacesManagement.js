@@ -58,7 +58,8 @@ function SpacesManagement({userRef, newSpace}) {
                 })
                 .then(response => {
                     if (response.ok) {
-                        userRef.current = null;
+                        localStorage.removeItem("person");
+                        navigate("/login")
                     } else {
                         console.error("Logout failed:", response.statusText);
                     }
@@ -72,9 +73,6 @@ function SpacesManagement({userRef, newSpace}) {
                     'Your have been succesfully logged out.',
                     'success'
                     )
-                    setTimeout(()=>{
-                        navigate("/");
-                    },[1500])
                 }
           })
 }
