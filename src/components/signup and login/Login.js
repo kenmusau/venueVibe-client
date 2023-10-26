@@ -76,6 +76,7 @@ function Login({ userRef }) {
           userRef.current = data;
           localStorage.setItem("client", JSON.stringify(data));
           navigate("/client");
+          Swal.fire('Login Successful!')
           console.log(data);
         })
         .catch((error) => {
