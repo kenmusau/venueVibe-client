@@ -20,6 +20,13 @@ function Recents() {
       });
   }, [id]);
 
+  if (filteredBookings.length === 0)
+    return (
+      <div className="recents-container nothing">
+        <p>Your bookings will appear here. Please make your first booking.</p>
+      </div>
+    );
+
   return (
     <div className="recents-container">
       <h1 className="recents-heading">Your Previous Bookings</h1>

@@ -48,7 +48,7 @@ function AdminDashboard({ userRef }) {
         })
           .then((response) => {
             if (response.ok) {
-              userRef.current = null;
+              // userRef.current = null;
               setAdmin(null);
               localStorage.removeItem("person");
               navigate("/login");

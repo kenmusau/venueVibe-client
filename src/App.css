@@ -20,16 +20,15 @@
   text-align: center;
   border-radius: 8px;
   padding: 5px 10px;
-  background-color: #ff6600; 
+  background-color: #ff6600;
   color: #fff;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-
 .user-form button:hover {
-  background-color: #ff4500; 
+  background-color: #ff4500;
 }
 
 .add-user-div {
@@ -85,7 +84,7 @@ button[type='submit']:hover {
   height: 100%;
 }
 
-.all{
+.all {
   height: 100%;
   overflow: hidden;
 }
@@ -129,7 +128,6 @@ html {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: #ff922b;
 }
-
 
 #company-name {
   width: 100%;
@@ -273,11 +271,11 @@ html {
   justify-content: center;
 }
 
-.panel-div a:active{
+.panel-div a:active {
   background-color: #037e00;
 }
 
-.placer{
+.placer {
   height: 100%;
 }
 
@@ -462,9 +460,8 @@ svg {
 
 /* ADD - USER */
 
-.add-user-form label{
+.add-user-form label {
   display: block;
-
 }
 
 .user-form {
@@ -472,7 +469,6 @@ svg {
   width: 80%;
   padding-top: 50px;
 }
-
 
 #back-icon {
   border-radius: 4px;
@@ -494,7 +490,6 @@ svg {
 .add-user-form button {
   width: 15%;
 }
-
 
 /* SPACES MANAGEMENT */
 
@@ -627,7 +622,7 @@ svg {
   border-radius: 50px;
 }
 
-.details{
+.details {
   display: flex;
   flex-direction: column;
   gap: 1.5em;
@@ -700,16 +695,18 @@ svg {
 }
 
 .wrapper {
-  margin-top: 8%;
+  /* margin-top: 8%; */
   border: 1px solid gray;
   /* margin: 5% ; */
-  height: 85%;
-  margin-left: 30%;
+  height: 100%;
+  /* margin-left: 30%; */
   border-radius: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: #ffffff;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .wrapper h1 {
@@ -888,27 +885,27 @@ svg {
   border-radius: 5px;
 }
 
-.password-div{
+.password-div {
   position: relative;
 }
 
-.email-div{
+.email-div {
   position: relative;
 }
 
-.picture-div{
+.picture-div {
   position: relative;
 }
 
-.username-input{
+.username-input {
   position: relative;
 }
 
-.lastname-input{
+.lastname-input {
   position: relative;
 }
 
-.firstname-input{
+.firstname-input {
   position: relative;
 }
 
@@ -937,22 +934,21 @@ svg {
   justify-content: center;
 }
 
-.firstname-input small{
+.firstname-input small {
   margin-left: 80px;
 }
 
-.lastname-input small{
-margin-left: 80px;
-}
-
-.username-input small{
-margin-left: 80px;
-}
-
-.password-div small{
+.lastname-input small {
   margin-left: 80px;
 }
 
+.username-input small {
+  margin-left: 80px;
+}
+
+.password-div small {
+  margin-left: 80px;
+}
 
 .signup-button {
   border: 1px solid;
@@ -1202,8 +1198,8 @@ margin-left: 80px;
 
 .blur {
   filter: blur(5px);
-  pointer-events: none; 
-  opacity: 0.7; 
+  pointer-events: none;
+  opacity: 0.7;
   transition: filter 0.3s, opacity 0.3s;
 }
 
@@ -1225,10 +1221,9 @@ margin-left: 80px;
 @media (max-width: 768px) {
   .signup {
     overflow-x: hidden;
-    flex-direction: column; 
-    height: auto; 
+    flex-direction: column;
+    height: auto;
   }
-
 
   .left,
   .right {
@@ -1240,7 +1235,7 @@ margin-left: 80px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
     margin-left: 10px;
   }
 
@@ -1251,7 +1246,7 @@ margin-left: 80px;
   }
 
   .names {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
@@ -1259,38 +1254,38 @@ margin-left: 80px;
     margin: 10px 0;
   }
 
-  .firstname{
+  .firstname {
     top: 1px;
   }
 
-  .lastname{
+  .lastname {
     top: 0px;
   }
 
-  .username{
+  .username {
     left: 172px;
   }
 
-  .profile-picture{
+  .profile-picture {
     left: 172px;
   }
 
-  .email{
+  .email {
     left: 172px;
     top: 10px;
   }
-  
-  .password{
+
+  .password {
     top: 10px;
     left: 172px;
   }
 
   .user-preference {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
-  .user-preference{
+  .user-preference {
     gap: 0;
   }
   .picture-div,
@@ -1299,13 +1294,13 @@ margin-left: 80px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
     margin: 10px 0;
   }
 
   .picture-div input,
   .username-input input {
-    width: 310px; 
+    width: 310px;
   }
 
   .username-input input {
@@ -1322,7 +1317,7 @@ margin-left: 80px;
   }
   .email-div,
   .password-div {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
   .password-div input {
@@ -1331,75 +1326,72 @@ margin-left: 80px;
 
   .email-div input,
   .password-div input {
-    width: 310px; 
+    width: 310px;
   }
 
   .signup-button {
     margin: 20px 0;
-    width: 200px; 
+    width: 200px;
     margin-left: 150px;
   }
 
   .have-account {
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 
   .or {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
   .or hr {
-    width: 60%; 
+    width: 60%;
     margin: 10px 0;
   }
 
   .social-login {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
   .google,
   .facebook {
-    width: 100%; 
+    width: 100%;
     margin: 10px 0;
   }
 }
 
-
 @media (max-width: 813px) {
-  .wrapper{
+  .wrapper {
     flex-direction: column;
   }
 
-  .wrapper h1{
-   position: relative;
-   margin-left: 40px;
-   transform: rotate(0deg);
-   text-align: center;
+  .wrapper h1 {
+    position: relative;
+    margin-left: 40px;
+    transform: rotate(0deg);
+    text-align: center;
     filter: blur(10px);
   }
-} 
+}
 
 @media (max-width: 727px) {
-  .admin{
+  .admin {
     flex-wrap: wrap;
     flex: 2;
   }
 }
 
-
-
 /* SPACE DETAILS */
 
-.spaceDetails-div{
+.spaceDetails-div {
   display: flex;
   height: 100%;
   justify-content: center;
   /* align-items: center; */
   background-color: #262d2d;
 }
-.spaceDetails{
+.spaceDetails {
   border: 2px solid black;
   height: 100%;
   width: 90%;
@@ -1407,13 +1399,13 @@ margin-left: 80px;
   flex-direction: column;
 }
 
-.spaceDetails img{
-  width: 100%; 
+.spaceDetails img {
+  width: 100%;
   height: 60%;
   object-fit: cover;
 }
 
-.space-text{
+.space-text {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -1439,7 +1431,7 @@ margin-left: 80px;
   background-color: #f5f5f5;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .spaceDetails {
@@ -1448,7 +1440,7 @@ margin-left: 80px;
   position: relative;
 }
 
-.spaces-back-button{
+.spaces-back-button {
   position: absolute;
   padding: 10px 10px;
   border: none;
@@ -1461,25 +1453,23 @@ margin-left: 80px;
   transition: transform ease-in-out 0.5s;
 }
 
-.spaces-back-button:hover{
+.spaces-back-button:hover {
   color: #d1f3da;
   transform: scale(1.1);
 }
 
-.pulse-spaces{
+.pulse-spaces {
   position: absolute;
   top: 300px;
   left: 400px;
 }
-
-
 
 .space-text {
   flex: 1;
 }
 
 .space-text input {
-  width: 100%; 
+  width: 100%;
   padding: 5px;
   margin-bottom: 10px;
   border: 1px solid #ccc;

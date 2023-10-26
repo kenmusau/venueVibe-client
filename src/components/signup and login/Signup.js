@@ -11,7 +11,7 @@ const schema = z.object({
   last_name: z.string().min(1),
   email: z.string().email(),
   username: z.string().min(1),
-  profile_picture: z.string().url(),
+  // profile_picture: z.string().url(),
   password: z.string().min(6),
 });
 function Signup({ setUser }) {
@@ -23,7 +23,6 @@ function Signup({ setUser }) {
   const { errors } = formState;
 
   function handleFormSubmit(formValues) {
-
     const formData = {
       username: formValues.username,
       first_name: formValues.first_name,
@@ -33,7 +32,7 @@ function Signup({ setUser }) {
       password: formValues.password,
     };
 
-    setShowLoader(true)
+    setShowLoader(true);
 
     fetch("https://venuevibe-server.onrender.com/clientSignup", {
       method: "POST",
@@ -54,10 +53,10 @@ function Signup({ setUser }) {
       })
       .catch((error) => {
         Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Something went wrong!',
-        })
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
       });
   }
 
