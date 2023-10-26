@@ -10,10 +10,9 @@ function AdminDashboard({ userRef }) {
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
-  // Step 3: Create a function to update the date (e.g., to increment it)
   const incrementDate = () => {
     const newDate = new Date(currentDate);
-    newDate.setDate(currentDate.getDate() + 1); // Example: Increment by one day
+    newDate.setDate(currentDate.getDate() + 1); 
     setCurrentDate(newDate);
   };
 
@@ -69,16 +68,6 @@ function AdminDashboard({ userRef }) {
     });
   }
 
-  // useEffect(() => {
-  //     fetch("")
-  //     .then(response=>{
-  //       if(!response.ok){
-  //         throw new Error("Error occured")
-  //       }
-  //       return response.json()
-  //     })
-  //     .then(data => )
-  // });
   const navigate = useNavigate();
 
   const handleNavigate = () => {

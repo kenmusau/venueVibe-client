@@ -7,6 +7,8 @@ import images1 from '../../images/img1.jpg';
 
 function Home() {
   const { currentUser } = useContext(UserContext);
+  const client = localStorage.getItem("client")
+  const admin = localStorage.getItem("person")
 
   return (
     <div className="full-screen">
@@ -25,12 +27,19 @@ function Home() {
               <p className="description" style={{ color: 'rgba(0, 0, 0, 0.60)', fontSize: '1.5rem', fontFamily: 'Inter', fontWeight: '500', lineHeight: '2rem', wordWrap: 'break-word' }}>
                 Welcome to Venue-Vibe, a platform that will bring people together to meet, create, and celebrate. Our main aim is to develop a community of like-minded people.
               </p>
-              <Link to="/signup" className="custom-button">
-                <div className="custom-button-text">Sign Up</div>
-              </Link>
-              <Link to="/login" className="custom-button">
-                <div className="custom-button-text">Login</div>
-              </Link>
+             {(client === null && admin === null) ? (
+               <div>
+                  <Link to="/signup" className="custom-button">
+                    <div className="custom-button-text">Sign Up</div>
+                  </Link>
+                  <Link to="/login" className="custom-button">
+                    <div className="custom-button-text">Login</div>
+                  </Link>
+                </div>
+              ) : null
+            }
+            {admin && <Link className='back-to-dash' to="dashboard">back to dashboard</Link>}
+            {client && <Link className='back-to-dash' to ="/client">back to dashboard</Link>}
             </div>
           )}
         </div>

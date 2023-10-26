@@ -7,10 +7,10 @@ function Navbar() {
     <div className="navbar">
       <div className="background-bar" />
       <div className="logo-container">
-        <div className="logo">
+        <a href='/' className="logo">
           <span className="venue">Venue</span>
           <span className="vibe">Vibe</span>
-        </div>
+        </a>
       </div>
       <Link to="/about-us" className="nav-item" style={{ left: '40%' }}>
         About Us
