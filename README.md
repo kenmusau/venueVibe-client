@@ -7,8 +7,8 @@ Welcome to VenueVibe, an online marketplace that connects space owners with indi
 **Live Link**
 You can access the live version of the platform at [Venue Vibe](https://venue-vibe-client.vercel.app/).
 
-**Front End Repository**
-For more details and access to the frontend code, please visit our [GitHub repository](https://github.com/Ken-Musau/venueVibe-server).
+**Back End Repository**
+For more details and access to the backend code, please visit our [GitHub repository](https://github.com/Ken-Musau/venueVibe-server).
 
 ## Table of Contents
 
